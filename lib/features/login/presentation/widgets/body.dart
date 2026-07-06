@@ -47,7 +47,7 @@ class Body extends StatelessWidget {
                 const SizedBox(height: 16),
 
                 Text(
-                  AppLocalizations.of(context)!.appname,
+                  AppLocalizations.of(context)!.login_title,
                   style: const TextStyle(fontSize: 25),
                   textAlign: TextAlign.center,
                 ),
@@ -55,7 +55,7 @@ class Body extends StatelessWidget {
                 const SizedBox(height: 16),
 
                 Text(
-                  AppLocalizations.of(context)!.sign_hello,
+                  AppLocalizations.of(context)!.login_subtitle,
                   textAlign: TextAlign.center,
                 ),
 
@@ -75,7 +75,7 @@ class Body extends StatelessWidget {
                         height: 20,
                       ),
                       const SizedBox(width: 8),
-                      Text(AppLocalizations.of(context)!.entrance),
+                      Text(AppLocalizations.of(context)!.login_google_button),
                     ],
                   ),
                 ),

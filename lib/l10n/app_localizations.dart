@@ -98,23 +98,239 @@ abstract class AppLocalizations {
     Locale('ru'),
   ];
 
-  /// No description provided for @appname.
+  /// No description provided for @login_title.
   ///
   /// In en, this message translates to:
-  /// **'Birthday Calendar'**
-  String get appname;
+  /// **'Birthday\nCalendar'**
+  String get login_title;
 
-  /// No description provided for @sign_hello.
+  /// No description provided for @login_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'never forget important dates of loved ones'**
-  String get sign_hello;
+  /// **'Never forget important\ndates of loved ones'**
+  String get login_subtitle;
 
-  /// No description provided for @entrance.
+  /// No description provided for @login_google_button.
   ///
   /// In en, this message translates to:
-  /// **'login via Google'**
-  String get entrance;
+  /// **'Sign in with Google'**
+  String get login_google_button;
+
+  /// No description provided for @main_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get main_title;
+
+  /// No description provided for @main_upcoming_birthday.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming birthday'**
+  String get main_upcoming_birthday;
+
+  /// No description provided for @main_all_birthdays.
+  ///
+  /// In en, this message translates to:
+  /// **'All birthdays'**
+  String get main_all_birthdays;
+
+  /// No description provided for @main_this_week.
+  ///
+  /// In en, this message translates to:
+  /// **'This week'**
+  String get main_this_week;
+
+  /// No description provided for @main_tab_home.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get main_tab_home;
+
+  /// No description provided for @main_tab_all.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get main_tab_all;
+
+  /// No description provided for @main_tab_settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get main_tab_settings;
+
+  /// No description provided for @all_title.
+  ///
+  /// In en, this message translates to:
+  /// **'All birthdays'**
+  String get all_title;
+
+  /// No description provided for @all_filter_all.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get all_filter_all;
+
+  /// No description provided for @settings_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings_title;
+
+  /// No description provided for @settings_notifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get settings_notifications;
+
+  /// No description provided for @settings_when_remind.
+  ///
+  /// In en, this message translates to:
+  /// **'When to remind'**
+  String get settings_when_remind;
+
+  /// No description provided for @settings_1_day_before.
+  ///
+  /// In en, this message translates to:
+  /// **'1 day before'**
+  String get settings_1_day_before;
+
+  /// No description provided for @settings_remind_time.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminder time'**
+  String get settings_remind_time;
+
+  /// No description provided for @settings_repeat_reminder.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeat reminder'**
+  String get settings_repeat_reminder;
+
+  /// No description provided for @settings_never.
+  ///
+  /// In en, this message translates to:
+  /// **'Never'**
+  String get settings_never;
+
+  /// No description provided for @settings_remind_on_birthday.
+  ///
+  /// In en, this message translates to:
+  /// **'Remind on birthday'**
+  String get settings_remind_on_birthday;
+
+  /// No description provided for @settings_appearance.
+  ///
+  /// In en, this message translates to:
+  /// **'Appearance'**
+  String get settings_appearance;
+
+  /// No description provided for @settings_theme.
+  ///
+  /// In en, this message translates to:
+  /// **'App theme'**
+  String get settings_theme;
+
+  /// No description provided for @settings_light_theme.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get settings_light_theme;
+
+  /// No description provided for @settings_account_color.
+  ///
+  /// In en, this message translates to:
+  /// **'Account color'**
+  String get settings_account_color;
+
+  /// No description provided for @settings_blue_color.
+  ///
+  /// In en, this message translates to:
+  /// **'Blue'**
+  String get settings_blue_color;
+
+  /// No description provided for @settings_other.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get settings_other;
+
+  /// No description provided for @settings_backup.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup'**
+  String get settings_backup;
+
+  /// No description provided for @settings_google_drive.
+  ///
+  /// In en, this message translates to:
+  /// **'Google Drive'**
+  String get settings_google_drive;
+
+  /// No description provided for @settings_about.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get settings_about;
+
+  /// No description provided for @settings_logout.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign out of Google account'**
+  String get settings_logout;
+
+  /// No description provided for @add_contact_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Add contact'**
+  String get add_contact_title;
+
+  /// No description provided for @add_contact_name_label.
+  ///
+  /// In en, this message translates to:
+  /// **'First name'**
+  String get add_contact_name_label;
+
+  /// No description provided for @add_contact_name_placeholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter first name'**
+  String get add_contact_name_placeholder;
+
+  /// No description provided for @add_contact_lastname_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Last name'**
+  String get add_contact_lastname_label;
+
+  /// No description provided for @add_contact_lastname_placeholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter last name'**
+  String get add_contact_lastname_placeholder;
+
+  /// No description provided for @add_contact_birthday_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Date of birth'**
+  String get add_contact_birthday_label;
+
+  /// No description provided for @add_contact_birthday_placeholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Select date'**
+  String get add_contact_birthday_placeholder;
+
+  /// No description provided for @add_contact_notes_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get add_contact_notes_label;
+
+  /// No description provided for @add_contact_notes_placeholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Additional information'**
+  String get add_contact_notes_placeholder;
 }
 
 class _AppLocalizationsDelegate

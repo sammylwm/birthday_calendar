@@ -1,5 +1,45 @@
 {
-  "appname": "Birthday Calendar",
-  "sign_hello": "never forget important dates of loved ones",
-  "entrance": "login via Google"
+  "login_title": "Birthday\nCalendar",
+  "login_subtitle": "Never forget important\ndates of loved ones",
+  "login_google_button": "Sign in with Google",
+
+  "main_title": "Home",
+  "main_upcoming_birthday": "Upcoming birthday",
+  "main_all_birthdays": "All birthdays",
+  "main_this_week": "This week",
+  "main_tab_home": "Home",
+  "main_tab_all": "All",
+  "main_tab_settings": "Settings",
+
+  "all_title": "All birthdays",
+  "all_filter_all": "All",
+
+  "settings_title": "Settings",
+  "settings_notifications": "Notifications",
+  "settings_when_remind": "When to remind",
+  "settings_1_day_before": "1 day before",
+  "settings_remind_time": "Reminder time",
+  "settings_repeat_reminder": "Repeat reminder",
+  "settings_never": "Never",
+  "settings_remind_on_birthday": "Remind on birthday",
+  "settings_appearance": "Appearance",
+  "settings_theme": "App theme",
+  "settings_light_theme": "Light",
+  "settings_account_color": "Account color",
+  "settings_blue_color": "Blue",
+  "settings_other": "Other",
+  "settings_backup": "Backup",
+  "settings_google_drive": "Google Drive",
+  "settings_about": "About",
+  "settings_logout": "Sign out of Google account",
+
+  "add_contact_title": "Add contact",
+  "add_contact_name_label": "First name",
+  "add_contact_name_placeholder": "Enter first name",
+  "add_contact_lastname_label": "Last name",
+  "add_contact_lastname_placeholder": "Enter last name",
+  "add_contact_birthday_label": "Date of birth",
+  "add_contact_birthday_placeholder": "Select date",
+  "add_contact_notes_label": "Notes",
+  "add_contact_notes_placeholder": "Additional information"
 }

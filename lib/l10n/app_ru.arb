@@ -1,5 +1,45 @@
 {
-  "appname": "Календарь\nдней рождений",
-  "sign_hello": "никогда не забывайте\nважные даты близких людей",
-  "entrance": "Войти через Google"
+  "login_title": "Календарь\nдней рождений",
+  "login_subtitle": "Никогда не забывайте\nважные даты близких людей",
+  "login_google_button": "Войти через Google",
+
+  "main_title": "Главная",
+  "main_upcoming_birthday": "Ближайший день рождения",
+  "main_all_birthdays": "Все дни рождения",
+  "main_this_week": "На этой неделе",
+  "main_tab_home": "Главная",
+  "main_tab_all": "Все",
+  "main_tab_settings": "Настройки",
+
+  "all_title": "Все дни рождения",
+  "all_filter_all": "Все",
+
+  "settings_title": "Настройки",
+  "settings_notifications": "Уведомления",
+  "settings_when_remind": "Когда уведомлять",
+  "settings_1_day_before": "За 1 день",
+  "settings_remind_time": "Время уведомления",
+  "settings_repeat_reminder": "Повторять уведомление",
+  "settings_never": "Никогда",
+  "settings_remind_on_birthday": "Уведомлять в день рождения",
+  "settings_appearance": "Внешний вид",
+  "settings_theme": "Тема приложения",
+  "settings_light_theme": "Светлая",
+  "settings_account_color": "Цвет аккаунта",
+  "settings_blue_color": "Синий",
+  "settings_other": "Другое",
+  "settings_backup": "Резервное копирование",
+  "settings_google_drive": "Google Диск",
+  "settings_about": "О приложении",
+  "settings_logout": "Выйти из аккаунта Google",
+
+  "add_contact_title": "Добавление контакта",
+  "add_contact_name_label": "Имя",
+  "add_contact_name_placeholder": "Введите имя",
+  "add_contact_lastname_label": "Фамилия",
+  "add_contact_lastname_placeholder": "Введите фамилию",
+  "add_contact_birthday_label": "Дата рождения",
+  "add_contact_birthday_placeholder": "Выберите дату",
+  "add_contact_notes_label": "Заметки",
+  "add_contact_notes_placeholder": "Дополнительная информация"
 }
