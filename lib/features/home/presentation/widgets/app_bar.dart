@@ -7,8 +7,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(AppLocalizations.of(context)!.main_title),
-      centerTitle: false,
+      title: Row(
+        children: [
+          Text(AppLocalizations.of(context)!.main_title),
+          Spacer(),
+          Icon(Icons.settings, size: 30),
+        ],
+      ),
     );
   }
 

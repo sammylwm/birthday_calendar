@@ -7,12 +7,16 @@ sealed class HomeState extends Equatable {
 
 class HomeLoading extends HomeState {}
 
-class HomeLoaded extends HomeState {
-  final List<Event>? events;
+class HomeEmpty extends HomeState {}
 
-  HomeLoaded({required this.events});
+class HomeLoaded extends HomeState {
+  final BirthdayEvent next;
+  final List<BirthdayEvent> inMonth;
+
+  HomeLoaded({required this.next, required this.inMonth});
+
   @override
-  List<Object?> get props => [events];
+  List<Object?> get props => [next, inMonth];
 }
 
 class HomeError extends HomeState {

@@ -23,8 +23,9 @@ void main() async {
   Bloc.observer = TalkerBlocObserver(
     talker: talker,
     settings: TalkerBlocLoggerSettings(
-      printStateFullData: false,
-      printEventFullData: false,
+      printChanges: true,
+      printStateFullData: true,
+      printEventFullData: true,
     ),
   );
 

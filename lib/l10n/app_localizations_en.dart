@@ -12,7 +12,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get login_title => 'Birthday\nCalendar';
 
   @override
-  String get login_subtitle => 'Never forget important\ndates of loved ones';
+  String get login_subtitle =>
+      'Never forget\nimportant dates of your loved ones';
 
   @override
   String get login_google_button => 'Sign in with Google';
@@ -27,7 +28,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get main_all_birthdays => 'All birthdays';
 
   @override
-  String get main_this_week => 'This week';
+  String get main_this_month => 'This month';
 
   @override
   String get main_tab_home => 'Home';
@@ -66,7 +67,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settings_never => 'Never';
 
   @override
-  String get settings_remind_on_birthday => 'Remind on birthday';
+  String get settings_remind_on_birthday => 'Notify on birthday';
 
   @override
   String get settings_appearance => 'Appearance';
@@ -114,7 +115,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get add_contact_lastname_placeholder => 'Enter last name';
 
   @override
-  String get add_contact_birthday_label => 'Date of birth';
+  String get add_contact_birthday_label => 'Birthday';
 
   @override
   String get add_contact_birthday_placeholder => 'Select date';
@@ -124,4 +125,85 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get add_contact_notes_placeholder => 'Additional information';
+
+  @override
+  String get months_nominative_1 => 'January';
+
+  @override
+  String get months_nominative_2 => 'February';
+
+  @override
+  String get months_nominative_3 => 'March';
+
+  @override
+  String get months_nominative_4 => 'April';
+
+  @override
+  String get months_nominative_5 => 'May';
+
+  @override
+  String get months_nominative_6 => 'June';
+
+  @override
+  String get months_nominative_7 => 'July';
+
+  @override
+  String get months_nominative_8 => 'August';
+
+  @override
+  String get months_nominative_9 => 'September';
+
+  @override
+  String get months_nominative_10 => 'October';
+
+  @override
+  String get months_nominative_11 => 'November';
+
+  @override
+  String get months_nominative_12 => 'December';
+
+  @override
+  String get months_genitive_1 => 'of January';
+
+  @override
+  String get months_genitive_2 => 'of February';
+
+  @override
+  String get months_genitive_3 => 'of March';
+
+  @override
+  String get months_genitive_4 => 'of April';
+
+  @override
+  String get months_genitive_5 => 'of May';
+
+  @override
+  String get months_genitive_6 => 'of June';
+
+  @override
+  String get months_genitive_7 => 'of July';
+
+  @override
+  String get months_genitive_8 => 'of August';
+
+  @override
+  String get months_genitive_9 => 'of September';
+
+  @override
+  String get months_genitive_10 => 'of October';
+
+  @override
+  String get months_genitive_11 => 'of November';
+
+  @override
+  String get months_genitive_12 => 'of December';
+
+  @override
+  String get through_day => 'days';
+
+  @override
+  String get common_through => 'in';
+
+  @override
+  String get old_years => 'year old';
 }

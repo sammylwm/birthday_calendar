@@ -107,7 +107,7 @@ abstract class AppLocalizations {
   /// No description provided for @login_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'Never forget important\ndates of loved ones'**
+  /// **'Never forget\nimportant dates of your loved ones'**
   String get login_subtitle;
 
   /// No description provided for @login_google_button.
@@ -134,11 +134,11 @@ abstract class AppLocalizations {
   /// **'All birthdays'**
   String get main_all_birthdays;
 
-  /// No description provided for @main_this_week.
+  /// No description provided for @main_this_month.
   ///
   /// In en, this message translates to:
-  /// **'This week'**
-  String get main_this_week;
+  /// **'This month'**
+  String get main_this_month;
 
   /// No description provided for @main_tab_home.
   ///
@@ -215,7 +215,7 @@ abstract class AppLocalizations {
   /// No description provided for @settings_remind_on_birthday.
   ///
   /// In en, this message translates to:
-  /// **'Remind on birthday'**
+  /// **'Notify on birthday'**
   String get settings_remind_on_birthday;
 
   /// No description provided for @settings_appearance.
@@ -311,7 +311,7 @@ abstract class AppLocalizations {
   /// No description provided for @add_contact_birthday_label.
   ///
   /// In en, this message translates to:
-  /// **'Date of birth'**
+  /// **'Birthday'**
   String get add_contact_birthday_label;
 
   /// No description provided for @add_contact_birthday_placeholder.
@@ -331,6 +331,168 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Additional information'**
   String get add_contact_notes_placeholder;
+
+  /// No description provided for @months_nominative_1.
+  ///
+  /// In en, this message translates to:
+  /// **'January'**
+  String get months_nominative_1;
+
+  /// No description provided for @months_nominative_2.
+  ///
+  /// In en, this message translates to:
+  /// **'February'**
+  String get months_nominative_2;
+
+  /// No description provided for @months_nominative_3.
+  ///
+  /// In en, this message translates to:
+  /// **'March'**
+  String get months_nominative_3;
+
+  /// No description provided for @months_nominative_4.
+  ///
+  /// In en, this message translates to:
+  /// **'April'**
+  String get months_nominative_4;
+
+  /// No description provided for @months_nominative_5.
+  ///
+  /// In en, this message translates to:
+  /// **'May'**
+  String get months_nominative_5;
+
+  /// No description provided for @months_nominative_6.
+  ///
+  /// In en, this message translates to:
+  /// **'June'**
+  String get months_nominative_6;
+
+  /// No description provided for @months_nominative_7.
+  ///
+  /// In en, this message translates to:
+  /// **'July'**
+  String get months_nominative_7;
+
+  /// No description provided for @months_nominative_8.
+  ///
+  /// In en, this message translates to:
+  /// **'August'**
+  String get months_nominative_8;
+
+  /// No description provided for @months_nominative_9.
+  ///
+  /// In en, this message translates to:
+  /// **'September'**
+  String get months_nominative_9;
+
+  /// No description provided for @months_nominative_10.
+  ///
+  /// In en, this message translates to:
+  /// **'October'**
+  String get months_nominative_10;
+
+  /// No description provided for @months_nominative_11.
+  ///
+  /// In en, this message translates to:
+  /// **'November'**
+  String get months_nominative_11;
+
+  /// No description provided for @months_nominative_12.
+  ///
+  /// In en, this message translates to:
+  /// **'December'**
+  String get months_nominative_12;
+
+  /// No description provided for @months_genitive_1.
+  ///
+  /// In en, this message translates to:
+  /// **'of January'**
+  String get months_genitive_1;
+
+  /// No description provided for @months_genitive_2.
+  ///
+  /// In en, this message translates to:
+  /// **'of February'**
+  String get months_genitive_2;
+
+  /// No description provided for @months_genitive_3.
+  ///
+  /// In en, this message translates to:
+  /// **'of March'**
+  String get months_genitive_3;
+
+  /// No description provided for @months_genitive_4.
+  ///
+  /// In en, this message translates to:
+  /// **'of April'**
+  String get months_genitive_4;
+
+  /// No description provided for @months_genitive_5.
+  ///
+  /// In en, this message translates to:
+  /// **'of May'**
+  String get months_genitive_5;
+
+  /// No description provided for @months_genitive_6.
+  ///
+  /// In en, this message translates to:
+  /// **'of June'**
+  String get months_genitive_6;
+
+  /// No description provided for @months_genitive_7.
+  ///
+  /// In en, this message translates to:
+  /// **'of July'**
+  String get months_genitive_7;
+
+  /// No description provided for @months_genitive_8.
+  ///
+  /// In en, this message translates to:
+  /// **'of August'**
+  String get months_genitive_8;
+
+  /// No description provided for @months_genitive_9.
+  ///
+  /// In en, this message translates to:
+  /// **'of September'**
+  String get months_genitive_9;
+
+  /// No description provided for @months_genitive_10.
+  ///
+  /// In en, this message translates to:
+  /// **'of October'**
+  String get months_genitive_10;
+
+  /// No description provided for @months_genitive_11.
+  ///
+  /// In en, this message translates to:
+  /// **'of November'**
+  String get months_genitive_11;
+
+  /// No description provided for @months_genitive_12.
+  ///
+  /// In en, this message translates to:
+  /// **'of December'**
+  String get months_genitive_12;
+
+  /// No description provided for @through_day.
+  ///
+  /// In en, this message translates to:
+  /// **'days'**
+  String get through_day;
+
+  /// No description provided for @common_through.
+  ///
+  /// In en, this message translates to:
+  /// **'in'**
+  String get common_through;
+
+  /// No description provided for @old_years.
+  ///
+  /// In en, this message translates to:
+  /// **'year old'**
+  String get old_years;
 }
 
 class _AppLocalizationsDelegate
