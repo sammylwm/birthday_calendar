@@ -206,4 +206,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get old_years => 'лет';
+
+  @override
+  String get birthdays_empty => 'В близайшее время без праздников';
 }

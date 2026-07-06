@@ -493,6 +493,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'year old'**
   String get old_years;
+
+  /// No description provided for @birthdays_empty.
+  ///
+  /// In en, this message translates to:
+  /// **'No birthdays yet'**
+  String get birthdays_empty;
 }
 
 class _AppLocalizationsDelegate

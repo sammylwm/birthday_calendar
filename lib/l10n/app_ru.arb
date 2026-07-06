@@ -71,5 +71,6 @@
 
   "common_through": "через",
   "through_day": "дней",
-  "old_years": "лет"
+  "old_years": "лет",
+  "birthdays_empty": "В близайшее время без праздников"
 }

@@ -70,5 +70,6 @@
   "months_genitive_12": "of December",
   "through_day": "days",
   "common_through": "in",
-  "old_years": "year old"
+  "old_years": "year old",
+  "birthdays_empty": "No birthdays yet"
 }

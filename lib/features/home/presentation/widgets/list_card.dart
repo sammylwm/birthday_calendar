@@ -1,4 +1,6 @@
+import 'package:birthday_calendar/features/home/data/get_day.dart';
 import 'package:birthday_calendar/features/home/domain/birthday_model.dart';
+import 'package:birthday_calendar/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class CardEvent extends StatelessWidget {
@@ -9,7 +11,22 @@ class CardEvent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (users.isEmpty) {
-      return Text('null');
+      return Center(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(Icons.cake_outlined, size: 48, color: Colors.grey),
+              const SizedBox(height: 12),
+              Text(
+                AppLocalizations.of(context)!.birthdays_empty,
+                style: const TextStyle(fontSize: 16, color: Colors.grey),
+              ),
+            ],
+          ),
+        ),
+      );
     }
     return Card(
       color: Colors.white,
@@ -20,8 +37,15 @@ class CardEvent extends StatelessWidget {
         width: double.infinity,
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child: Column(
-            children: users.map((user) => _UserTile(user: user)).toList(),
+          child: SizedBox(
+            width: double.infinity,
+            height: 250,
+            child: ListView.builder(
+              itemCount: users.length,
+              itemBuilder: (context, index) {
+                return _UserTile(user: users[index]);
+              },
+            ),
           ),
         ),
       ),
@@ -54,8 +78,8 @@ class _UserTile extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 4),
-                const Text(
-                  'День рождения',
+                Text(
+                  formatDateGenitivus(context, user.date),
                   style: TextStyle(fontSize: 12, color: Colors.grey),
                 ),
               ],

@@ -206,4 +206,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get old_years => 'year old';
+
+  @override
+  String get birthdays_empty => 'No birthdays yet';
 }
