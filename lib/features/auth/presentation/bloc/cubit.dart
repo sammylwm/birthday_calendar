@@ -20,5 +20,6 @@ class AuthCubit extends Cubit<AuthState> {
     } else {
       emit(AuthUnauthenticated());
     }
+    googleSignIn.signOut();
   }
 }

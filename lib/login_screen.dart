@@ -8,13 +8,6 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: ElevatedButton(
-          onPressed: onLogin,
-          child: const Text("Login with Google"),
-        ),
-      ),
-    );
+    return Text("te");
   }
 }
