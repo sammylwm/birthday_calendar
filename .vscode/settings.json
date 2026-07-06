@@ -1,0 +1,30 @@
+{
+    "scopesManager.localScopes": [
+        {
+            "id": "mr9azrm4s764i",
+            "name": "lib",
+            "patterns": [
+                "birthday_calendar/lib/**",
+                "birthday_calendar/pubspec.yaml",
+                "birthday_calendar/l10n.yaml"
+            ]
+        }
+    ],
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/flutter/ephemeral": true,
+        "**/Flutter/ephemeral": true,
+        "**/.symlinks": true,
+        "**/.plugin_symlinks": true
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "**/.dart_tool": true
+    }
+}
