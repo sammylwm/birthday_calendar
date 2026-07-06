@@ -32,13 +32,11 @@ class _CalendarScreenState extends State<CalendarScreen> {
 
     final api = CalendarApi(client);
 
-    final events = await api.events.list(
-      "primary",
-      eventTypes: ['birthday'],
-    );
+    final events = await api.events.list("primary", eventTypes: ['birthday']);
 
     setState(() {
-      status = events.items
+      status =
+          events.items
               ?.map((e) => "${e.summary} - ${e.start?.date}")
               .join("\n") ??
           "No events";

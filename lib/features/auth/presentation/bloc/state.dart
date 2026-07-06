@@ -1,0 +1,14 @@
+part of "cubit.dart";
+
+sealed class AuthState extends Equatable {
+  @override
+  List<Object?> get props => [];
+}
+
+class AuthInitial extends AuthState {}
+
+class AuthLoading extends AuthState {}
+
+class AuthAuthenticated extends AuthState {}
+
+class AuthUnauthenticated extends AuthState {}
