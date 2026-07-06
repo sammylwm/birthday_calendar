@@ -9,6 +9,14 @@ import 'package:talker_flutter/talker_flutter.dart';
 
 part "state.dart";
 
+String trimLastWords(String input, {int count = 3}) {
+  final parts = input.trim().split(RegExp(r'\s+'));
+
+  if (parts.length <= count) return input;
+
+  return parts.sublist(0, parts.length - count).join(' ');
+}
+
 DateTime _nextOccurrence(DateTime birthday, DateTime now) {
   final currentYearDate = DateTime(now.year, birthday.month, birthday.day);
 
@@ -40,7 +48,7 @@ class HomeCubit extends Cubit<HomeState> {
 
             return BirthdayEvent(
               id: e.id ?? "",
-              name: e.summary ?? "No name",
+              name: trimLastWords(e.summary ?? "No name"),
               date: DateTime.parse(date.toString()),
             );
           }).toList() ??

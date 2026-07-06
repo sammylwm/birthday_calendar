@@ -1,4 +1,6 @@
 import 'package:birthday_calendar/features/home/presentation/bloc/cubit.dart';
+import 'package:birthday_calendar/l10n/app_localizations.dart';
+import 'list_card.dart';
 import 'next_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,7 +30,17 @@ class _BodyState extends State<Body> {
         if (state is HomeLoaded) {
           final next = state.next;
           final inMonth = state.inMonth;
-          return Column(children: [NextCard(user: next)]);
+          return Column(
+            children: [
+              NextCard(user: next),
+              SizedBox(height: 8),
+              Text(
+                AppLocalizations.of(context)!.main_this_month,
+                style: TextStyle(fontSize: 18),
+              ),
+              CardEvent(users: inMonth),
+            ],
+          );
 
           //   Text(next.toString());
           //   if (inMonth.isEmpty) {
