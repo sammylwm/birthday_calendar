@@ -11,7 +11,7 @@ class AuthScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<AuthCubit>(
       create: (context) => AuthCubit()..checkLogin(),
-      child: const MaterialApp(home: AuthGate()),
+      child: AuthGate(),
     );
   }
 }
