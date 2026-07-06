@@ -9,6 +9,16 @@ import 'package:talker_flutter/talker_flutter.dart';
 
 part "state.dart";
 
+DateTime _nextOccurrence(DateTime birthday, DateTime now) {
+  final currentYearDate = DateTime(now.year, birthday.month, birthday.day);
+
+  if (!currentYearDate.isBefore(now)) {
+    return currentYearDate;
+  }
+
+  return DateTime(now.year + 1, birthday.month, birthday.day);
+}
+
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(HomeLoading()) {
     _getList();
@@ -45,7 +55,18 @@ class HomeCubit extends Cubit<HomeState> {
           if (aKey.$1 != bKey.$1) return aKey.$1.compareTo(bKey.$1);
           return aKey.$2.compareTo(bKey.$2);
         });
-        final next = birthdays.first;
+
+        final now = DateTime.now();
+
+        final next = birthdays.reduce((a, b) {
+          final aNext = _nextOccurrence(a.date, now);
+          final bNext = _nextOccurrence(b.date, now);
+
+          final aDiff = aNext.difference(now).inDays;
+          final bDiff = bNext.difference(now).inDays;
+
+          return aDiff <= bDiff ? a : b;
+        });
         final inMonth = birthdays.where((b) {
           return b.date.month == DateTime.now().month;
         }).toList();
