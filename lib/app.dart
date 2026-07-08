@@ -1,4 +1,4 @@
-import 'package:birthday_calendar/themes/app_theme.dart';
+import 'package:birthday_calendar/themes/my_theme.dart';
 import 'package:flutter/material.dart';
 
 import 'features/auth/presentation/auth_screen.dart';
@@ -14,12 +14,14 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
+    final materialTheme = MaterialTheme(ThemeData.light().textTheme);
+
     return MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
+      theme: materialTheme.light(),
+      darkTheme: materialTheme.dark(),
       themeMode: ThemeMode.system,
       home: AuthScreen(),
     );

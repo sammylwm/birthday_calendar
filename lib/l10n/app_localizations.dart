@@ -461,7 +461,7 @@ abstract class AppLocalizations {
   /// No description provided for @months_genitive_10.
   ///
   /// In en, this message translates to:
-  /// **'of October'**
+  /// **'of O1 ctober'**
   String get months_genitive_10;
 
   /// No description provided for @months_genitive_11.
@@ -499,6 +499,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No birthdays yet'**
   String get birthdays_empty;
+
+  /// No description provided for @edit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get edit;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
 }
 
 class _AppLocalizationsDelegate

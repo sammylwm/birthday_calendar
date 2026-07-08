@@ -190,7 +190,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get months_genitive_9 => 'of September';
 
   @override
-  String get months_genitive_10 => 'of October';
+  String get months_genitive_10 => 'of O1 ctober';
 
   @override
   String get months_genitive_11 => 'of November';
@@ -209,4 +209,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get birthdays_empty => 'No birthdays yet';
+
+  @override
+  String get edit => 'Edit';
+
+  @override
+  String get delete => 'Delete';
 }

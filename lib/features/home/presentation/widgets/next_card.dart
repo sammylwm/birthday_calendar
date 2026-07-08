@@ -13,15 +13,19 @@ class NextCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 0,
+      color: Theme.of(context).colorScheme.surfaceContainerLow,
+      surfaceTintColor: Colors.transparent,
       clipBehavior: Clip.hardEdge,
-      elevation: 2,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: InkWell(
+        borderRadius: BorderRadius.circular(20),
         onTap: () {},
         child: SizedBox(
           width: double.infinity,
           height: 250,
           child: Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(20),
             child: Info(user: user),
           ),
         ),
@@ -37,71 +41,84 @@ class Info extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              AppLocalizations.of(context)!.main_upcoming_birthday,
-              style: TextStyle(fontSize: 14, color: Colors.grey),
+        Center(
+          child: Text(
+            AppLocalizations.of(context)!.main_upcoming_birthday,
+            style: textTheme.bodyMedium?.copyWith(
+              color: colorScheme.onSurfaceVariant,
             ),
-            IconButton(
-              padding: EdgeInsets.zero,
-              constraints: const BoxConstraints(),
-              icon: const Icon(Icons.more_vert),
-              onPressed: () {},
-            ),
-          ],
+          ),
         ),
 
-        const SizedBox(height: 12),
+        const Spacer(),
 
         Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Icon(Icons.cake_outlined, size: 56),
+            CircleAvatar(
+              radius: 32,
+              backgroundColor: colorScheme.primaryContainer,
+              child: Icon(
+                Icons.cake_outlined,
+                size: 30,
+                color: colorScheme.onPrimaryContainer,
+              ),
+            ),
 
-            const SizedBox(width: 12),
+            const SizedBox(width: 16),
 
             Expanded(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     user.name,
-                    style: const TextStyle(
-                      fontSize: 18,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.w600,
                     ),
-                    maxLines: 2,
-                    softWrap: true,
-                    overflow: TextOverflow.ellipsis,
                   ),
 
-                  const SizedBox(height: 4),
+                  const SizedBox(height: 8),
 
                   Text(
                     "${calculateAge(user.date)} ${AppLocalizations.of(context)!.old_years}",
-                    style: TextStyle(color: Colors.grey),
+                    style: textTheme.bodyMedium?.copyWith(
+                      color: colorScheme.onSurfaceVariant,
+                    ),
                   ),
 
                   const SizedBox(height: 4),
+
                   Text(
                     "${AppLocalizations.of(context)!.common_through} ${daysUntilDate(user.date)} ${AppLocalizations.of(context)!.through_day}",
+                    style: textTheme.bodyMedium,
                   ),
 
-                  const SizedBox(height: 6),
+                  const SizedBox(height: 8),
 
                   Text(
                     formatDateGenitivus(context, user.date),
-                    style: const TextStyle(fontSize: 18),
+                    style: textTheme.titleMedium?.copyWith(
+                      color: colorScheme.primary,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ],
               ),
             ),
           ],
         ),
+
+        const Spacer(),
       ],
     );
   }

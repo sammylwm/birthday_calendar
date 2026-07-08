@@ -10,6 +10,9 @@ class CardEvent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+
     if (users.isEmpty) {
       return Center(
         child: Padding(
@@ -17,36 +20,37 @@ class CardEvent extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(Icons.cake_outlined, size: 48, color: Colors.grey),
+              Icon(Icons.cake_outlined, size: 48, color: colorScheme.outline),
               const SizedBox(height: 12),
               Text(
                 AppLocalizations.of(context)!.birthdays_empty,
-                style: const TextStyle(fontSize: 16, color: Colors.grey),
+                style: textTheme.bodyLarge?.copyWith(
+                  color: colorScheme.onSurfaceVariant,
+                ),
               ),
             ],
           ),
         ),
       );
     }
+
     return Card(
-      color: Colors.white,
-      surfaceTintColor: Colors.white,
-      elevation: 1,
+      elevation: 0,
+      color: colorScheme.surfaceContainerLow,
+      surfaceTintColor: Colors.transparent,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       clipBehavior: Clip.hardEdge,
       child: SizedBox(
         width: double.infinity,
-        child: Padding(
+        height: 250,
+        child: ListView.separated(
           padding: const EdgeInsets.all(16),
-          child: SizedBox(
-            width: double.infinity,
-            height: 250,
-            child: ListView.builder(
-              itemCount: users.length,
-              itemBuilder: (context, index) {
-                return _UserTile(user: users[index]);
-              },
-            ),
-          ),
+          itemCount: users.length,
+          separatorBuilder: (_, __) =>
+              Divider(height: 24, color: colorScheme.outlineVariant),
+          itemBuilder: (context, index) {
+            return _UserTile(user: users[index]);
+          },
         ),
       ),
     );
@@ -60,48 +64,69 @@ class _UserTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 4),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // Имя + подпись
+          CircleAvatar(
+            radius: 22,
+            backgroundColor: colorScheme.primaryContainer,
+            child: Icon(
+              Icons.cake,
+              color: colorScheme.onPrimaryContainer,
+              size: 20,
+            ),
+          ),
+
+          const SizedBox(width: 16),
+
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   user.name,
-                  style: const TextStyle(
-                    fontSize: 16,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   formatDateGenitivus(context, user.date),
-                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                  style: textTheme.bodySmall?.copyWith(
+                    color: colorScheme.onSurfaceVariant,
+                  ),
                 ),
               ],
             ),
           ),
 
-          // Дата
+          const SizedBox(width: 12),
+
           Text(
             '${user.date.day}.${user.date.month}',
-            style: const TextStyle(fontSize: 14, color: Colors.black87),
+            style: textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w500),
           ),
 
-          const SizedBox(width: 8),
-
-          // Меню (⋮)
           PopupMenuButton<String>(
+            iconColor: colorScheme.onSurfaceVariant,
             onSelected: (value) {},
-            itemBuilder: (context) => const [
-              PopupMenuItem(value: 'edit', child: Text('Edit')),
-              PopupMenuItem(value: 'delete', child: Text('Delete')),
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                value: 'edit',
+                child: Text(AppLocalizations.of(context)!.edit),
+              ),
+              PopupMenuItem(
+                value: 'delete',
+                child: Text(AppLocalizations.of(context)!.delete),
+              ),
             ],
-            icon: const Icon(Icons.more_vert),
           ),
         ],
       ),

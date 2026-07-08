@@ -65,11 +65,13 @@
   "months_genitive_7": "of July",
   "months_genitive_8": "of August",
   "months_genitive_9": "of September",
-  "months_genitive_10": "of October",
+  "months_genitive_10": "of O1 ctober",
   "months_genitive_11": "of November",
   "months_genitive_12": "of December",
   "through_day": "days",
   "common_through": "in",
   "old_years": "year old",
-  "birthdays_empty": "No birthdays yet"
+  "birthdays_empty": "No birthdays yet",
+  "edit": "Edit",
+  "delete": "Delete"
 }

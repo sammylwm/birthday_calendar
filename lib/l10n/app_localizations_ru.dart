@@ -209,4 +209,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get birthdays_empty => 'В близайшее время без праздников';
+
+  @override
+  String get edit => 'Изменить';
+
+  @override
+  String get delete => 'Удалить';
 }
