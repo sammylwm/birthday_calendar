@@ -18,13 +18,15 @@ String trimLastWords(String input, {int count = 3}) {
 }
 
 DateTime _nextOccurrence(DateTime birthday, DateTime now) {
-  final currentYearDate = DateTime(now.year, birthday.month, birthday.day);
+  final today = DateTime(now.year, now.month, now.day);
 
-  if (!currentYearDate.isBefore(now)) {
-    return currentYearDate;
+  var next = DateTime(today.year, birthday.month, birthday.day);
+
+  if (next.isBefore(today)) {
+    next = DateTime(today.year + 1, birthday.month, birthday.day);
   }
 
-  return DateTime(now.year + 1, birthday.month, birthday.day);
+  return next;
 }
 
 class HomeCubit extends Cubit<HomeState> {
@@ -66,15 +68,14 @@ class HomeCubit extends Cubit<HomeState> {
 
         final now = DateTime.now();
 
-        final next = birthdays.reduce((a, b) {
-          final aNext = _nextOccurrence(a.date, now);
-          final bNext = _nextOccurrence(b.date, now);
+        final nextDate = birthdays
+            .map((b) => _nextOccurrence(b.date, now))
+            .reduce((a, b) => a.isBefore(b) ? a : b);
 
-          final aDiff = aNext.difference(now).inDays;
-          final bDiff = bNext.difference(now).inDays;
+        final next = birthdays.where((b) {
+          return _nextOccurrence(b.date, now) == nextDate;
+        }).toList();
 
-          return aDiff <= bDiff ? a : b;
-        });
         final inMonth = birthdays.where((b) {
           return b.date.month == now.month && b.date.day > now.day;
         }).toList();

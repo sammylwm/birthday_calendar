@@ -73,5 +73,6 @@
   "old_years": "year old",
   "birthdays_empty": "No birthdays yet",
   "edit": "Edit",
-  "delete": "Delete"
+  "delete": "Delete",
+  "now": "Now"
 }

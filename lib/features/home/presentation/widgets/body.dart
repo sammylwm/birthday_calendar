@@ -32,7 +32,7 @@ class _BodyState extends State<Body> {
           final inMonth = state.inMonth;
           return Column(
             children: [
-              NextCard(user: next),
+              NextCard(users: next),
               SizedBox(height: 8),
               Text(
                 AppLocalizations.of(context)!.main_this_month,

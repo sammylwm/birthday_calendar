@@ -6,9 +6,9 @@ import 'package:birthday_calendar/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class NextCard extends StatelessWidget {
-  final BirthdayEvent user;
+  final List<BirthdayEvent> users;
 
-  const NextCard({super.key, required this.user});
+  const NextCard({super.key, required this.users});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class NextCard extends StatelessWidget {
           height: 250,
           child: Padding(
             padding: const EdgeInsets.all(20),
-            child: Info(user: user),
+            child: Info(users: users),
           ),
         ),
       ),
@@ -35,14 +35,17 @@ class NextCard extends StatelessWidget {
 }
 
 class Info extends StatelessWidget {
-  final BirthdayEvent user;
+  final List<BirthdayEvent> users;
 
-  const Info({super.key, required this.user});
+  const Info({super.key, required this.users});
 
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
+
+    final user = users.first;
+    final days = daysUntilDate(user.date);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,17 +78,26 @@ class Info extends StatelessWidget {
 
             Expanded(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    user.name,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.w600,
+                  if (users.length == 1)
+                    Text(
+                      user.name,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.w600,
+                      ),
+                    )
+                  else
+                    Text(
+                      users.map((e) => e.name).join(", "),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
 
                   const SizedBox(height: 8),
 
@@ -98,10 +110,29 @@ class Info extends StatelessWidget {
 
                   const SizedBox(height: 4),
 
-                  Text(
-                    "${AppLocalizations.of(context)!.common_through} ${daysUntilDate(user.date)} ${AppLocalizations.of(context)!.through_day}",
-                    style: textTheme.bodyMedium,
-                  ),
+                  if (days == 0)
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 4,
+                      ),
+                      decoration: BoxDecoration(
+                        color: colorScheme.primaryContainer,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Text(
+                        AppLocalizations.of(context)!.now,
+                        style: textTheme.labelMedium?.copyWith(
+                          color: colorScheme.onPrimaryContainer,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    )
+                  else
+                    Text(
+                      "${AppLocalizations.of(context)!.common_through} $days ${AppLocalizations.of(context)!.through_day}",
+                      style: textTheme.bodyMedium,
+                    ),
 
                   const SizedBox(height: 8),
 

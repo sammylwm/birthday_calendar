@@ -10,7 +10,7 @@ class HomeLoading extends HomeState {}
 class HomeEmpty extends HomeState {}
 
 class HomeLoaded extends HomeState {
-  final BirthdayEvent next;
+  final List<BirthdayEvent> next;
   final List<BirthdayEvent> inMonth;
 
   HomeLoaded({required this.next, required this.inMonth});
