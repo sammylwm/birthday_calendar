@@ -22,4 +22,7 @@ class HomeLoaded extends HomeState {
 class HomeError extends HomeState {
   final String message;
   HomeError(this.message);
+
+  @override
+  List<Object?> get props => [message];
 }
