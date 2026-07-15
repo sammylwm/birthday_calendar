@@ -1,4 +1,5 @@
 import 'package:birthday_calendar/core/utils/auth.dart';
+import 'package:birthday_calendar/features/home/domain/birthday_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -18,6 +19,15 @@ class AllCubit extends Cubit<AllState> {
         emit(AllEmpty());
         return;
       }
+      Map<int, List<BirthdayEvent>> events = {};
+      for (final event in birthdays) {
+        events[event.date.month] ??= [];
+        events[event.date.month]!.add(event);
+      }
+      final res = Map.fromEntries(
+        events.entries.toList()..sort((a, b) => a.key.compareTo(b.key)),
+      );
+      emit(AllLoaded(res));
     } catch (e) {
       GetIt.I<Talker>().handle(e.toString());
       emit(AllError(e.toString()));

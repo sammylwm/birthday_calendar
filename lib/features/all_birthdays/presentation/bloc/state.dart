@@ -7,7 +7,13 @@ sealed class AllState extends Equatable {
 
 class AllLoading extends AllState {}
 
-class AllLoaded extends AllState {}
+class AllLoaded extends AllState {
+  final Map<int, List<BirthdayEvent>> events;
+  AllLoaded(this.events);
+
+  @override
+  List<Object?> get props => [events];
+}
 
 class AllEmpty extends AllState {}
 

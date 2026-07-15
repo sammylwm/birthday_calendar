@@ -24,9 +24,6 @@ class _BodyState extends State<Body> {
         }
       },
       builder: (context, state) {
-        if (state is HomeLoading) {
-          return const Center(child: CircularProgressIndicator());
-        }
         if (state is HomeLoaded) {
           final next = state.next;
           final inMonth = state.inMonth;
@@ -42,7 +39,8 @@ class _BodyState extends State<Body> {
             ],
           );
         }
-        return Text('hello');
+
+        return const Center(child: CircularProgressIndicator());
       },
     );
   }

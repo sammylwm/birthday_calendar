@@ -1,3 +1,4 @@
+import 'package:birthday_calendar/features/all_birthdays/presentation/all_birthdays_screen.dart';
 import 'package:birthday_calendar/features/home/presentation/home_screen.dart';
 import 'package:birthday_calendar/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class _MainNavigationState extends State<MainNavigation> {
 
   final pages = [
     HomeScreen(),
-    Center(child: Text('Дни рождения')),
+    AllBirthdaysScreen(),
     Center(child: Text('Настройки')),
   ];
 

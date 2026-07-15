@@ -137,7 +137,7 @@ class Info extends StatelessWidget {
                   const SizedBox(height: 8),
 
                   Text(
-                    "${user.date.day} ${formatDateGenitivus(context, user.date)}",
+                    "${user.date.day} ${getMonthGenetivus(context, user.date)}",
                     style: textTheme.titleMedium?.copyWith(
                       color: colorScheme.primary,
                       fontWeight: FontWeight.w600,

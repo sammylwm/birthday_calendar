@@ -98,7 +98,7 @@ class _UserTile extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  "${user.date.day} ${formatDateGenitivus(context, user.date)}",
+                  "${user.date.day} ${getMonthGenetivus(context, user.date)}",
                   style: textTheme.bodySmall?.copyWith(
                     color: colorScheme.onSurfaceVariant,
                   ),
