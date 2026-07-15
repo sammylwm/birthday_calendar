@@ -76,7 +76,7 @@ class HomeCubit extends Cubit<HomeState> {
           return aDiff <= bDiff ? a : b;
         });
         final inMonth = birthdays.where((b) {
-          return b.date.month == DateTime.now().month;
+          return b.date.month == now.month && b.date.day > now.day;
         }).toList();
 
         emit(HomeLoaded(next: next, inMonth: inMonth));

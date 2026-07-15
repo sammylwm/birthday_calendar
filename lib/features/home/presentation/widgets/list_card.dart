@@ -109,11 +109,6 @@ class _UserTile extends StatelessWidget {
 
           const SizedBox(width: 12),
 
-          Text(
-            '${user.date.day}.${user.date.month}',
-            style: textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w500),
-          ),
-
           PopupMenuButton<String>(
             iconColor: colorScheme.onSurfaceVariant,
             onSelected: (value) {},

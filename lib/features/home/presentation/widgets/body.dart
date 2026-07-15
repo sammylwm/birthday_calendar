@@ -41,22 +41,6 @@ class _BodyState extends State<Body> {
               CardEvent(users: inMonth),
             ],
           );
-
-          //   Text(next.toString());
-          //   if (inMonth.isEmpty) {
-          //     return Text("ничего нет");
-          //   }
-          //   return ListView.builder(
-          //     itemCount: inMonth.length,
-          //     itemBuilder: (context, index) {
-          //       final event = inMonth[index];
-
-          //       return ListTile(
-          //         title: Text(event.name),
-          //         subtitle: Text(event.date.toString()),
-          //       );
-          //     },
-          //   );
         }
         return Text('hello');
       },
