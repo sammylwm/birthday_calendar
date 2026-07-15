@@ -15,7 +15,7 @@ class AllBirthdaysScreen extends StatelessWidget {
         appBar: CustomAppBar(),
         body: SafeArea(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8),
+            padding: EdgeInsets.symmetric(horizontal: 0),
             child: Body(),
           ),
         ),

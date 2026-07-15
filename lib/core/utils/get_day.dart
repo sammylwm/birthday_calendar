@@ -1,7 +1,7 @@
 import 'package:birthday_calendar/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
-String getMonthNominativus(BuildContext context, DateTime date) {
+String getMonthNominativus(BuildContext context, int month) {
   final l10n = AppLocalizations.of(context)!;
 
   final months = [
@@ -19,12 +19,12 @@ String getMonthNominativus(BuildContext context, DateTime date) {
     l10n.months_nominative_12,
   ];
 
-  final month = months[date.month - 1];
+  final res = months[month - 1];
 
-  return month;
+  return res;
 }
 
-String getMonthGenetivus(BuildContext context, DateTime date) {
+String getMonthGenetivus(BuildContext context, int month) {
   final l10n = AppLocalizations.of(context)!;
 
   final months = [
@@ -42,7 +42,7 @@ String getMonthGenetivus(BuildContext context, DateTime date) {
     l10n.months_genitive_12,
   ];
 
-  final month = months[date.month - 1];
+  final res = months[month - 1];
 
-  return month;
+  return res;
 }
