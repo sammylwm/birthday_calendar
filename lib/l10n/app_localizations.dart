@@ -254,18 +254,6 @@ abstract class AppLocalizations {
   /// **'Other'**
   String get settings_other;
 
-  /// No description provided for @settings_backup.
-  ///
-  /// In en, this message translates to:
-  /// **'Backup'**
-  String get settings_backup;
-
-  /// No description provided for @settings_google_drive.
-  ///
-  /// In en, this message translates to:
-  /// **'Google Drive'**
-  String get settings_google_drive;
-
   /// No description provided for @settings_about.
   ///
   /// In en, this message translates to:

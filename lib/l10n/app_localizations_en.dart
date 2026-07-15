@@ -88,12 +88,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settings_other => 'Other';
 
   @override
-  String get settings_backup => 'Backup';
-
-  @override
-  String get settings_google_drive => 'Google Drive';
-
-  @override
   String get settings_about => 'About';
 
   @override

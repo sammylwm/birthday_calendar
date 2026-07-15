@@ -88,12 +88,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get settings_other => 'Другое';
 
   @override
-  String get settings_backup => 'Резервное копирование';
-
-  @override
-  String get settings_google_drive => 'Google Диск';
-
-  @override
   String get settings_about => 'О приложении';
 
   @override
