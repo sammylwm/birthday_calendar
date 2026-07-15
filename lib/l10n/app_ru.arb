@@ -40,6 +40,8 @@
   "add_contact_birthday_placeholder": "Выберите дату",
   "add_contact_notes_label": "Заметки",
   "add_contact_notes_placeholder": "Дополнительная информация",
+  "add_ready": "День рождения добавлен",
+  "add": "Добавить",
 
   "common_through": "через",
   "old_years": "лет",

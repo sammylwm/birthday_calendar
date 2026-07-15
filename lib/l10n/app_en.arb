@@ -40,6 +40,8 @@
   "add_contact_birthday_placeholder": "Select date",
   "add_contact_notes_label": "Notes",
   "add_contact_notes_placeholder": "Additional information",
+  "add_ready": "Birthday added",
+  "add": "Add",
 
   "days": "{count, plural, one{{count} day} other{{count} days}}",
   "@days": {

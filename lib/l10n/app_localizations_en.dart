@@ -121,6 +121,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get add_contact_notes_placeholder => 'Additional information';
 
   @override
+  String get add_ready => 'Birthday added';
+
+  @override
+  String get add => 'Add';
+
+  @override
   String days(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,

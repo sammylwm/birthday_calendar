@@ -320,6 +320,18 @@ abstract class AppLocalizations {
   /// **'Additional information'**
   String get add_contact_notes_placeholder;
 
+  /// No description provided for @add_ready.
+  ///
+  /// In en, this message translates to:
+  /// **'Birthday added'**
+  String get add_ready;
+
+  /// No description provided for @add.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get add;
+
   /// Number of days
   ///
   /// In en, this message translates to:

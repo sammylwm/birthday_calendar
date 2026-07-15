@@ -10,16 +10,18 @@ part "state.dart";
 class AddCubit extends Cubit<AddState> {
   AddCubit() : super(AddInitial());
 
-  Future add() async {
+  Future add(String summary, DateTime date) async {
     try {
       emit(AddLoading());
       final api = await getApi();
       final event = calendar.Event(
-        summary: "Dexter Morgan",
+        summary: summary,
         eventType: "birthday",
         transparency: "transparent",
-        start: calendar.EventDateTime(date: DateTime(2026, 7, 16)),
-        end: calendar.EventDateTime(date: DateTime(2026, 7, 16 + 1)),
+        start: calendar.EventDateTime(date: date),
+        end: calendar.EventDateTime(
+          date: DateTime(date.year, date.month, date.day + 1),
+        ),
         recurrence: ['RRULE:FREQ=YEARLY'],
         visibility: "private",
       );
