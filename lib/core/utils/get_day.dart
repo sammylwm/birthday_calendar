@@ -19,10 +19,9 @@ String formatDateNominativus(BuildContext context, DateTime date) {
     l10n.months_nominative_12,
   ];
 
-  final day = date.day;
   final month = months[date.month - 1];
 
-  return '$day $month';
+  return month;
 }
 
 String formatDateGenitivus(BuildContext context, DateTime date) {
@@ -43,8 +42,7 @@ String formatDateGenitivus(BuildContext context, DateTime date) {
     l10n.months_genitive_12,
   ];
 
-  final day = date.day;
   final month = months[date.month - 1];
 
-  return '$day $month';
+  return month;
 }

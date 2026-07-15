@@ -1,6 +1,6 @@
 import 'package:birthday_calendar/core/utils/get_day.dart';
-import 'package:birthday_calendar/core/utils/get_days.dart';
-import 'package:birthday_calendar/core/utils/year_get.dart';
+import 'package:birthday_calendar/features/home/data/get_days.dart';
+import 'package:birthday_calendar/features/home/data/year_get.dart';
 import 'package:birthday_calendar/features/home/domain/birthday_model.dart';
 import 'package:birthday_calendar/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
@@ -137,7 +137,7 @@ class Info extends StatelessWidget {
                   const SizedBox(height: 8),
 
                   Text(
-                    formatDateGenitivus(context, user.date),
+                    "${user.date.day} ${formatDateGenitivus(context, user.date)}",
                     style: textTheme.titleMedium?.copyWith(
                       color: colorScheme.primary,
                       fontWeight: FontWeight.w600,
