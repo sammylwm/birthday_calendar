@@ -18,7 +18,6 @@ void main() async {
     serverClientId:
         "611671590619-8mbjaqesr8hf6idg9ifmlet0qivhuu95.apps.googleusercontent.com",
   );
-
   GetIt.I.registerSingleton(googleSignIn);
   final talker = TalkerFlutter.init();
   GetIt.I.registerSingleton(talker);

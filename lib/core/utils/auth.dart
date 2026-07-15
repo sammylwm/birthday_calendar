@@ -12,17 +12,39 @@ String trimLastWords(String input, {int count = 3}) {
   return parts.sublist(0, parts.length - count).join(' ');
 }
 
-Future<GoogleSignInClientAuthorization?> getAuth() async {
-  final auth = await GetIt.I<GoogleSignIn>().authorizationClient
-      .authorizationForScopes([CalendarApi.calendarReadonlyScope]);
+Future<GoogleSignInClientAuthorization> getAuth() async {
+  final google = GetIt.I<GoogleSignIn>();
+
+  var auth = await google.authorizationClient.authorizationForScopes([
+    CalendarApi.calendarEventsScope,
+  ]);
+
+  if (auth != null) {
+    return auth;
+  }
+
+  auth = await google.authorizationClient.authorizeScopes([
+    CalendarApi.calendarEventsScope,
+  ]);
+
   return auth;
 }
 
-Future<List<BirthdayEvent>> getBirthdays() async {
+Future<CalendarApi> getApi() async {
   final auth = await getAuth();
-  final client = auth!.authClient(scopes: [CalendarApi.calendarReadonlyScope]);
 
-  final api = CalendarApi(client);
+  final client = auth.authClient(
+    scopes: [
+      CalendarApi.calendarReadonlyScope,
+      CalendarApi.calendarEventsScope,
+    ],
+  );
+
+  return CalendarApi(client);
+}
+
+Future<List<BirthdayEvent>> getBirthdays() async {
+  final api = await getApi();
   final events = await api.events.list("primary", eventTypes: ['birthday']);
   final birthdays =
       events.items?.where((e) => e.start?.date != null).map((e) {

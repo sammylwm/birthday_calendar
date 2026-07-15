@@ -33,7 +33,7 @@ class AuthGate extends StatelessWidget {
           case AuthUnauthenticated():
             return const LoginScreen();
           case AuthInitial():
-            return Text('test');
+            return const Center(child: CircularProgressIndicator());
         }
       },
     );

@@ -100,7 +100,7 @@ class Info extends StatelessWidget {
 
                   const SizedBox(height: 8),
 
-                  if (users.length == 1)
+                  if (users.length == 1 && calculateAge(user.date) > 0)
                     Text(
                       "${calculateAge(user.date)} ${AppLocalizations.of(context)!.old_years}",
                       style: textTheme.bodyMedium?.copyWith(
