@@ -1,6 +1,6 @@
-import 'package:birthday_calendar/features/home/data/get_day.dart';
-import 'package:birthday_calendar/features/home/data/get_days.dart';
-import 'package:birthday_calendar/features/home/data/year_get.dart';
+import 'package:birthday_calendar/core/utils/get_day.dart';
+import 'package:birthday_calendar/core/utils/get_days.dart';
+import 'package:birthday_calendar/core/utils/year_get.dart';
 import 'package:birthday_calendar/features/home/domain/birthday_model.dart';
 import 'package:birthday_calendar/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +20,6 @@ class NextCard extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: InkWell(
         borderRadius: BorderRadius.circular(20),
-        onTap: () {},
         child: SizedBox(
           width: double.infinity,
           height: 250,
@@ -101,12 +100,13 @@ class Info extends StatelessWidget {
 
                   const SizedBox(height: 8),
 
-                  Text(
-                    "${calculateAge(user.date)} ${AppLocalizations.of(context)!.old_years}",
-                    style: textTheme.bodyMedium?.copyWith(
-                      color: colorScheme.onSurfaceVariant,
+                  if (users.length == 1)
+                    Text(
+                      "${calculateAge(user.date)} ${AppLocalizations.of(context)!.old_years}",
+                      style: textTheme.bodyMedium?.copyWith(
+                        color: colorScheme.onSurfaceVariant,
+                      ),
                     ),
-                  ),
 
                   const SizedBox(height: 4),
 

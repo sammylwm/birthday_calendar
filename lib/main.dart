@@ -20,6 +20,7 @@ void main() async {
   GetIt.I.registerSingleton(googleSignIn);
   final talker = TalkerFlutter.init();
   GetIt.I.registerSingleton(talker);
+
   Bloc.observer = TalkerBlocObserver(
     talker: talker,
     settings: TalkerBlocLoggerSettings(

@@ -14,6 +14,10 @@ class AllCubit extends Cubit<AllState> {
   Future _getList() async {
     try {
       final birthdays = await getBirthdays();
+      if (birthdays.isEmpty) {
+        emit(AllEmpty());
+        return;
+      }
     } catch (e) {
       GetIt.I<Talker>().handle(e.toString());
       emit(AllError(e.toString()));
