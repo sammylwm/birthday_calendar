@@ -1,5 +1,4 @@
 import 'package:birthday_calendar/features/auth/presentation/bloc/cubit.dart';
-import 'package:birthday_calendar/features/home/presentation/home_screen.dart';
 import 'package:birthday_calendar/features/login/presentation/login_screen.dart';
 import 'package:birthday_calendar/navigation.dart';
 import 'package:flutter/material.dart';
