@@ -43,36 +43,22 @@
   "add_contact_notes_label": "Notes",
   "add_contact_notes_placeholder": "Additional information",
 
-  "months_nominative_1": "January",
-  "months_nominative_2": "February",
-  "months_nominative_3": "March",
-  "months_nominative_4": "April",
-  "months_nominative_5": "May",
-  "months_nominative_6": "June",
-  "months_nominative_7": "July",
-  "months_nominative_8": "August",
-  "months_nominative_9": "September",
-  "months_nominative_10": "October",
-  "months_nominative_11": "November",
-  "months_nominative_12": "December",
-
-  "months_genitive_1": "of January",
-  "months_genitive_2": "of February",
-  "months_genitive_3": "of March",
-  "months_genitive_4": "of April",
-  "months_genitive_5": "of May",
-  "months_genitive_6": "of June",
-  "months_genitive_7": "of July",
-  "months_genitive_8": "of August",
-  "months_genitive_9": "of September",
-  "months_genitive_10": "of O1 ctober",
-  "months_genitive_11": "of November",
-  "months_genitive_12": "of December",
-  "through_day": "days",
+  "days": "{count, plural, one{{count} day} other{{count} days}}",
+  "@days": {
+    "description": "Number of days",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "common_through": "in",
   "old_years": "year old",
   "birthdays_empty": "No birthdays yet",
   "edit": "Edit",
   "delete": "Delete",
-  "now": "Now"
+  "now": "Now",
+
+  "empty_birthdays_title": "No birthdays yet",
+  "empty_birthdays_subtitle": "Add birthdays to Google Calendar to see them here"
 }

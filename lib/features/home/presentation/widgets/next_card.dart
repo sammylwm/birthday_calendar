@@ -130,14 +130,13 @@ class Info extends StatelessWidget {
                     )
                   else
                     Text(
-                      "${AppLocalizations.of(context)!.common_through} $days ${AppLocalizations.of(context)!.through_day}",
+                      "${AppLocalizations.of(context)!.common_through} ${AppLocalizations.of(context)!.days(days)}",
                       style: textTheme.bodyMedium,
                     ),
-
                   const SizedBox(height: 8),
 
                   Text(
-                    "${user.date.day} ${getMonthGenetivus(context, user.date.month)}",
+                    getMonthGenetivus(context, user.date.month, user.date.day),
                     style: textTheme.titleMedium?.copyWith(
                       color: colorScheme.primary,
                       fontWeight: FontWeight.w600,

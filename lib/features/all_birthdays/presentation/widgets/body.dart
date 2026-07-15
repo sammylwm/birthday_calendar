@@ -1,4 +1,5 @@
 import 'package:birthday_calendar/features/all_birthdays/presentation/bloc/cubit.dart';
+import 'package:birthday_calendar/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'month_list.dart';
@@ -34,7 +35,24 @@ class Body extends StatelessWidget {
           );
         }
         if (state is AllEmpty) {
-          Text("empty");
+          return Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(Icons.cake_outlined, size: 64),
+                const SizedBox(height: 16),
+                Text(
+                  AppLocalizations.of(context)!.empty_birthdays_subtitle,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  AppLocalizations.of(context)!.empty_birthdays_subtitle,
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          );
         }
         return const Center(child: CircularProgressIndicator());
       },

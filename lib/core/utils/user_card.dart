@@ -44,7 +44,7 @@ class UserTile extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  "${user.date.day} ${getMonthGenetivus(context, user.date.month)}",
+                  getMonthGenetivus(context, user.date.month, user.date.day),
                   style: textTheme.bodySmall?.copyWith(
                     color: colorScheme.onSurfaceVariant,
                   ),

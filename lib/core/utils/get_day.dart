@@ -1,48 +1,21 @@
 import 'package:birthday_calendar/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 String getMonthNominativus(BuildContext context, int month) {
-  final l10n = AppLocalizations.of(context)!;
-
-  final months = [
-    l10n.months_nominative_1,
-    l10n.months_nominative_2,
-    l10n.months_nominative_3,
-    l10n.months_nominative_4,
-    l10n.months_nominative_5,
-    l10n.months_nominative_6,
-    l10n.months_nominative_7,
-    l10n.months_nominative_8,
-    l10n.months_nominative_9,
-    l10n.months_nominative_10,
-    l10n.months_nominative_11,
-    l10n.months_nominative_12,
-  ];
-
-  final res = months[month - 1];
-
+  final locale = Localizations.localeOf(context).languageCode;
+  String res = DateFormat(
+    'LLLL',
+    locale,
+  ).format(DateTime(2026, month, 1)).trim();
   return res;
 }
 
-String getMonthGenetivus(BuildContext context, int month) {
-  final l10n = AppLocalizations.of(context)!;
-
-  final months = [
-    l10n.months_genitive_1,
-    l10n.months_genitive_2,
-    l10n.months_genitive_3,
-    l10n.months_genitive_4,
-    l10n.months_genitive_5,
-    l10n.months_genitive_6,
-    l10n.months_genitive_7,
-    l10n.months_genitive_8,
-    l10n.months_genitive_9,
-    l10n.months_genitive_10,
-    l10n.months_genitive_11,
-    l10n.months_genitive_12,
-  ];
-
-  final res = months[month - 1];
-
+String getMonthGenetivus(BuildContext context, int month, int date) {
+  final locale = Localizations.localeOf(context).languageCode;
+  String res = DateFormat(
+    '$date MMMM',
+    locale,
+  ).format(DateTime(2026, month, 1)).trim();
   return res;
 }

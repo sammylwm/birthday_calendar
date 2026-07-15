@@ -332,155 +332,11 @@ abstract class AppLocalizations {
   /// **'Additional information'**
   String get add_contact_notes_placeholder;
 
-  /// No description provided for @months_nominative_1.
+  /// Number of days
   ///
   /// In en, this message translates to:
-  /// **'January'**
-  String get months_nominative_1;
-
-  /// No description provided for @months_nominative_2.
-  ///
-  /// In en, this message translates to:
-  /// **'February'**
-  String get months_nominative_2;
-
-  /// No description provided for @months_nominative_3.
-  ///
-  /// In en, this message translates to:
-  /// **'March'**
-  String get months_nominative_3;
-
-  /// No description provided for @months_nominative_4.
-  ///
-  /// In en, this message translates to:
-  /// **'April'**
-  String get months_nominative_4;
-
-  /// No description provided for @months_nominative_5.
-  ///
-  /// In en, this message translates to:
-  /// **'May'**
-  String get months_nominative_5;
-
-  /// No description provided for @months_nominative_6.
-  ///
-  /// In en, this message translates to:
-  /// **'June'**
-  String get months_nominative_6;
-
-  /// No description provided for @months_nominative_7.
-  ///
-  /// In en, this message translates to:
-  /// **'July'**
-  String get months_nominative_7;
-
-  /// No description provided for @months_nominative_8.
-  ///
-  /// In en, this message translates to:
-  /// **'August'**
-  String get months_nominative_8;
-
-  /// No description provided for @months_nominative_9.
-  ///
-  /// In en, this message translates to:
-  /// **'September'**
-  String get months_nominative_9;
-
-  /// No description provided for @months_nominative_10.
-  ///
-  /// In en, this message translates to:
-  /// **'October'**
-  String get months_nominative_10;
-
-  /// No description provided for @months_nominative_11.
-  ///
-  /// In en, this message translates to:
-  /// **'November'**
-  String get months_nominative_11;
-
-  /// No description provided for @months_nominative_12.
-  ///
-  /// In en, this message translates to:
-  /// **'December'**
-  String get months_nominative_12;
-
-  /// No description provided for @months_genitive_1.
-  ///
-  /// In en, this message translates to:
-  /// **'of January'**
-  String get months_genitive_1;
-
-  /// No description provided for @months_genitive_2.
-  ///
-  /// In en, this message translates to:
-  /// **'of February'**
-  String get months_genitive_2;
-
-  /// No description provided for @months_genitive_3.
-  ///
-  /// In en, this message translates to:
-  /// **'of March'**
-  String get months_genitive_3;
-
-  /// No description provided for @months_genitive_4.
-  ///
-  /// In en, this message translates to:
-  /// **'of April'**
-  String get months_genitive_4;
-
-  /// No description provided for @months_genitive_5.
-  ///
-  /// In en, this message translates to:
-  /// **'of May'**
-  String get months_genitive_5;
-
-  /// No description provided for @months_genitive_6.
-  ///
-  /// In en, this message translates to:
-  /// **'of June'**
-  String get months_genitive_6;
-
-  /// No description provided for @months_genitive_7.
-  ///
-  /// In en, this message translates to:
-  /// **'of July'**
-  String get months_genitive_7;
-
-  /// No description provided for @months_genitive_8.
-  ///
-  /// In en, this message translates to:
-  /// **'of August'**
-  String get months_genitive_8;
-
-  /// No description provided for @months_genitive_9.
-  ///
-  /// In en, this message translates to:
-  /// **'of September'**
-  String get months_genitive_9;
-
-  /// No description provided for @months_genitive_10.
-  ///
-  /// In en, this message translates to:
-  /// **'of O1 ctober'**
-  String get months_genitive_10;
-
-  /// No description provided for @months_genitive_11.
-  ///
-  /// In en, this message translates to:
-  /// **'of November'**
-  String get months_genitive_11;
-
-  /// No description provided for @months_genitive_12.
-  ///
-  /// In en, this message translates to:
-  /// **'of December'**
-  String get months_genitive_12;
-
-  /// No description provided for @through_day.
-  ///
-  /// In en, this message translates to:
-  /// **'days'**
-  String get through_day;
+  /// **'{count, plural, one{{count} day} other{{count} days}}'**
+  String days(int count);
 
   /// No description provided for @common_through.
   ///
@@ -517,6 +373,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Now'**
   String get now;
+
+  /// No description provided for @empty_birthdays_title.
+  ///
+  /// In en, this message translates to:
+  /// **'No birthdays yet'**
+  String get empty_birthdays_title;
+
+  /// No description provided for @empty_birthdays_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add birthdays to Google Calendar to see them here'**
+  String get empty_birthdays_subtitle;
 }
 
 class _AppLocalizationsDelegate

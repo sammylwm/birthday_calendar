@@ -127,79 +127,17 @@ class AppLocalizationsRu extends AppLocalizations {
   String get add_contact_notes_placeholder => 'Дополнительная информация';
 
   @override
-  String get months_nominative_1 => 'Январь';
-
-  @override
-  String get months_nominative_2 => 'Февраль';
-
-  @override
-  String get months_nominative_3 => 'Март';
-
-  @override
-  String get months_nominative_4 => 'Апрель';
-
-  @override
-  String get months_nominative_5 => 'Май';
-
-  @override
-  String get months_nominative_6 => 'Июнь';
-
-  @override
-  String get months_nominative_7 => 'Июль';
-
-  @override
-  String get months_nominative_8 => 'Август';
-
-  @override
-  String get months_nominative_9 => 'Сентябрь';
-
-  @override
-  String get months_nominative_10 => 'Октябрь';
-
-  @override
-  String get months_nominative_11 => 'Ноябрь';
-
-  @override
-  String get months_nominative_12 => 'Декабрь';
-
-  @override
-  String get months_genitive_1 => 'января';
-
-  @override
-  String get months_genitive_2 => 'февраля';
-
-  @override
-  String get months_genitive_3 => 'марта';
-
-  @override
-  String get months_genitive_4 => 'апреля';
-
-  @override
-  String get months_genitive_5 => 'мая';
-
-  @override
-  String get months_genitive_6 => 'июня';
-
-  @override
-  String get months_genitive_7 => 'июля';
-
-  @override
-  String get months_genitive_8 => 'августа';
-
-  @override
-  String get months_genitive_9 => 'сентября';
-
-  @override
-  String get months_genitive_10 => 'октября';
-
-  @override
-  String get months_genitive_11 => 'ноября';
-
-  @override
-  String get months_genitive_12 => 'декабря';
-
-  @override
-  String get through_day => 'дней';
+  String days(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count дня',
+      many: '$count дней',
+      few: '$count дня',
+      one: '$count день',
+    );
+    return '$_temp0';
+  }
 
   @override
   String get common_through => 'через';
@@ -218,4 +156,11 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get now => 'Сегодня';
+
+  @override
+  String get empty_birthdays_title => 'Пока нет дней рождения';
+
+  @override
+  String get empty_birthdays_subtitle =>
+      'Добавьте дни рождения в Google Календарь, чтобы увидеть их здесь';
 }

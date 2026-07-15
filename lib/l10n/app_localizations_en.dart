@@ -127,79 +127,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get add_contact_notes_placeholder => 'Additional information';
 
   @override
-  String get months_nominative_1 => 'January';
-
-  @override
-  String get months_nominative_2 => 'February';
-
-  @override
-  String get months_nominative_3 => 'March';
-
-  @override
-  String get months_nominative_4 => 'April';
-
-  @override
-  String get months_nominative_5 => 'May';
-
-  @override
-  String get months_nominative_6 => 'June';
-
-  @override
-  String get months_nominative_7 => 'July';
-
-  @override
-  String get months_nominative_8 => 'August';
-
-  @override
-  String get months_nominative_9 => 'September';
-
-  @override
-  String get months_nominative_10 => 'October';
-
-  @override
-  String get months_nominative_11 => 'November';
-
-  @override
-  String get months_nominative_12 => 'December';
-
-  @override
-  String get months_genitive_1 => 'of January';
-
-  @override
-  String get months_genitive_2 => 'of February';
-
-  @override
-  String get months_genitive_3 => 'of March';
-
-  @override
-  String get months_genitive_4 => 'of April';
-
-  @override
-  String get months_genitive_5 => 'of May';
-
-  @override
-  String get months_genitive_6 => 'of June';
-
-  @override
-  String get months_genitive_7 => 'of July';
-
-  @override
-  String get months_genitive_8 => 'of August';
-
-  @override
-  String get months_genitive_9 => 'of September';
-
-  @override
-  String get months_genitive_10 => 'of O1 ctober';
-
-  @override
-  String get months_genitive_11 => 'of November';
-
-  @override
-  String get months_genitive_12 => 'of December';
-
-  @override
-  String get through_day => 'days';
+  String days(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count days',
+      one: '$count day',
+    );
+    return '$_temp0';
+  }
 
   @override
   String get common_through => 'in';
@@ -218,4 +154,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get now => 'Now';
+
+  @override
+  String get empty_birthdays_title => 'No birthdays yet';
+
+  @override
+  String get empty_birthdays_subtitle =>
+      'Add birthdays to Google Calendar to see them here';
 }

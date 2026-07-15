@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:talker_bloc_logger/talker_bloc_logger_observer.dart';
 import 'package:talker_bloc_logger/talker_bloc_logger_settings.dart';
 import 'package:talker_flutter/talker_flutter.dart';
@@ -11,6 +12,7 @@ import 'package:talker_flutter/talker_flutter.dart';
 import 'app.dart';
 
 void main() async {
+  await initializeDateFormatting('ru', null);
   final GoogleSignIn googleSignIn = GoogleSignIn.instance;
   await googleSignIn.initialize(
     serverClientId:
