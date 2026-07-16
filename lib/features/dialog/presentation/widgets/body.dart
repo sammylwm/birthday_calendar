@@ -52,18 +52,17 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<Bubit, BirthdayState>(
-      listenWhen: (p, c) => p.added != c.added && c.added,
+      listenWhen: (p, c) =>
+          p.addStatus != c.addStatus && c.addStatus == ActionStatus.success,
       listener: (context, state) {
-        if (state.added) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(AppLocalizations.of(context)!.add_ready)),
-          );
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(AppLocalizations.of(context)!.add_ready)),
+        );
 
-          Navigator.pop(context);
-        }
+        Navigator.pop(context);
       },
       builder: (context, state) {
-        if (state.adding) {
+        if (state.addStatus == ActionStatus.loading) {
           return const Center(child: CircularProgressIndicator());
         }
 

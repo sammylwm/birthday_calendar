@@ -1,10 +1,11 @@
 import 'package:birthday_calendar/core/utils/dialog_deleted.dart';
+import 'package:birthday_calendar/core/utils/edit.dart';
 import 'package:birthday_calendar/core/utils/get_day.dart';
 import 'package:birthday_calendar/features/bloc/cubit.dart';
 import 'package:birthday_calendar/features/home/domain/birthday_model.dart';
 import 'package:birthday_calendar/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UserTile extends StatelessWidget {
   final BirthdayEvent user;
@@ -62,23 +63,33 @@ class UserTile extends StatelessWidget {
             iconColor: colorScheme.onSurfaceVariant,
 
             onSelected: (value) async {
-              if (value == AppLocalizations.of(context)!.delete) {
+              if (value == 'delete') {
                 final confirmed = await showDeleteDialog(context, user.name);
 
                 if (confirmed && context.mounted) {
                   context.read<Bubit>().delete(user.id);
                 }
+              } else if (value == "edit") {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => BlocProvider.value(
+                      value: context.read<Bubit>(),
+                      child: EditDialog(user: user),
+                    ),
+                  ),
+                );
               }
             },
 
             itemBuilder: (context) => [
               PopupMenuItem(
-                value: AppLocalizations.of(context)!.edit,
+                value: "edit",
                 child: Text(AppLocalizations.of(context)!.edit),
               ),
 
               PopupMenuItem(
-                value: AppLocalizations.of(context)!.delete,
+                value: "delete",
                 child: Text(AppLocalizations.of(context)!.delete),
               ),
             ],

@@ -168,10 +168,21 @@ class AppLocalizationsRu extends AppLocalizations {
   String get deleted => 'Контакт успешно удалён';
 
   @override
+  String get edited => 'Контакт успешно изменён';
+
+  @override
   String get cancel => 'Отмена';
 
   @override
   String delete_contact_confirmation(String name) {
     return 'Удалить контакт \"$name\"?';
   }
+
+  @override
+  String edit_contact_confirmation(String name) {
+    return 'Сохранить изменения контакта \"$name\"?';
+  }
+
+  @override
+  String get edit_contact => 'Изменение контакта';
 }

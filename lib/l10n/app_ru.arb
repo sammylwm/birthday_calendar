@@ -63,13 +63,24 @@
   "empty_birthdays_subtitle": "Добавьте дни рождения в Google Календарь, чтобы увидеть их здесь",
 
   "deleted": "Контакт успешно удалён",
-  "delete_contact_confirmation": "Удалить контакт \"{name}\"?",
+  "edited": "Контакт успешно изменён",
   "cancel": "Отмена",
+  "delete_contact_confirmation": "Удалить контакт \"{name}\"?",
   "@delete_contact_confirmation": {
     "placeholders": {
       "name": {
         "type": "String"
       }
     }
-  }
+  },
+  "edit_contact_confirmation": "Сохранить изменения контакта \"{name}\"?",
+  "@edit_contact_confirmation": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+
+  "edit_contact": "Изменение контакта"
 }

@@ -166,10 +166,21 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deleted => 'Contact deleted successfully';
 
   @override
+  String get edited => 'Contact edited successfully';
+
+  @override
   String get cancel => 'Cansel';
 
   @override
   String delete_contact_confirmation(String name) {
     return 'Delete contact \"$name\"?';
   }
+
+  @override
+  String edit_contact_confirmation(String name) {
+    return 'save contact change for \"$name\"?';
+  }
+
+  @override
+  String get edit_contact => 'Edit contact';
 }

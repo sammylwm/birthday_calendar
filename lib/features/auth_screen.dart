@@ -25,14 +25,14 @@ class AuthGate extends StatelessWidget {
     return BlocListener<Bubit, BirthdayState>(
       listenWhen: (previous, current) =>
           previous.error != current.error && current.error != null ||
-          previous.deleting != current.deleting,
+          previous.deleteStatus != current.deleteStatus,
       listener: (context, state) {
         if (state.error != null) {
           ScaffoldMessenger.of(
             context,
           ).showSnackBar(SnackBar(content: Text(state.error!)));
         }
-        if (state.deleted) {
+        if (state.deleteStatus == ActionStatus.success) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(AppLocalizations.of(context)!.deleted)),
           );

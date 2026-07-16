@@ -83,7 +83,7 @@ class Bubit extends Cubit<BirthdayState> {
 
   Future add(String summary, DateTime date) async {
     try {
-      emit(state.copyWith(adding: true, error: null, added: false));
+      emit(state.copyWith(addStatus: ActionStatus.loading, error: null));
       final api = await getApi();
       final event = calendar.Event(
         summary: summary,
@@ -97,26 +97,64 @@ class Bubit extends Cubit<BirthdayState> {
         visibility: "private",
       );
       await api.events.insert(event, "primary");
-      emit(state.copyWith(added: true, adding: false));
+      emit(state.copyWith(addStatus: ActionStatus.success));
       getAll();
     } catch (e, st) {
       onError(e, st);
 
-      emit(state.copyWith(adding: false, error: e.toString()));
+      emit(
+        state.copyWith(addStatus: ActionStatus.failure, error: e.toString()),
+      );
     }
   }
 
   Future delete(String eventId) async {
     try {
-      emit(state.copyWith(deleting: true, error: null));
+      emit(state.copyWith(deleteStatus: ActionStatus.loading, error: null));
       final api = await getApi();
       await api.events.delete("primary", eventId);
-      emit(state.copyWith(deleted: true, deleting: false));
+      emit(state.copyWith(deleteStatus: ActionStatus.success));
       getAll();
     } catch (e, st) {
       onError(e, st);
       emit(
-        state.copyWith(deleting: false, error: e.toString(), deleted: false),
+        state.copyWith(deleteStatus: ActionStatus.failure, error: e.toString()),
+      );
+    }
+  }
+
+  Future<void> edit(
+    BirthdayEvent event, {
+    required String summary,
+    required DateTime date,
+  }) async {
+    try {
+      emit(state.copyWith(error: null, editStatus: ActionStatus.loading));
+
+      final api = await getApi();
+
+      final updatedEvent = calendar.Event(
+        summary: summary,
+        eventType: "birthday",
+        transparency: "transparent",
+        start: calendar.EventDateTime(date: date),
+        end: calendar.EventDateTime(
+          date: DateTime(date.year, date.month, date.day + 1),
+        ),
+        recurrence: ['RRULE:FREQ=YEARLY'],
+        visibility: "private",
+      );
+
+      await api.events.update(updatedEvent, "primary", event.id);
+
+      emit(state.copyWith(editStatus: ActionStatus.success));
+
+      await getAll();
+    } catch (e, st) {
+      onError(e, st);
+
+      emit(
+        state.copyWith(editStatus: ActionStatus.failure, error: e.toString()),
       );
     }
   }

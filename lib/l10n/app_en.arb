@@ -64,6 +64,7 @@
 
 
   "deleted": "Contact deleted successfully",
+  "edited": "Contact edited successfully",
   "cancel": "Cansel",
   "delete_contact_confirmation": "Delete contact \"{name}\"?",
   "@delete_contact_confirmation": {
@@ -72,5 +73,15 @@
         "type": "String"
       }
     }
-  }
+  },
+  "edit_contact_confirmation": "save contact change for \"{name}\"?",
+  "@edit_contact_confirmation": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "edit_contact": "Edit contact"
+
 }

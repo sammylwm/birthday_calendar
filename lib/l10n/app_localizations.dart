@@ -392,6 +392,12 @@ abstract class AppLocalizations {
   /// **'Contact deleted successfully'**
   String get deleted;
 
+  /// No description provided for @edited.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact edited successfully'**
+  String get edited;
+
   /// No description provided for @cancel.
   ///
   /// In en, this message translates to:
@@ -403,6 +409,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Delete contact \"{name}\"?'**
   String delete_contact_confirmation(String name);
+
+  /// No description provided for @edit_contact_confirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'save contact change for \"{name}\"?'**
+  String edit_contact_confirmation(String name);
+
+  /// No description provided for @edit_contact.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit contact'**
+  String get edit_contact;
 }
 
 class _AppLocalizationsDelegate
