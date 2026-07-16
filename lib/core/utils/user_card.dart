@@ -2,6 +2,7 @@ import 'package:birthday_calendar/core/utils/dialog_deleted.dart';
 import 'package:birthday_calendar/core/utils/edit.dart';
 import 'package:birthday_calendar/core/utils/get_day.dart';
 import 'package:birthday_calendar/features/bloc/cubit.dart';
+import 'package:birthday_calendar/features/home/data/year_get.dart';
 import 'package:birthday_calendar/features/home/domain/birthday_model.dart';
 import 'package:birthday_calendar/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
@@ -37,6 +38,7 @@ class UserTile extends StatelessWidget {
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   user.name,
@@ -44,13 +46,28 @@ class UserTile extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w600,
+                    letterSpacing: 0.1,
                   ),
                 ),
-                const SizedBox(height: 4),
+
+                const SizedBox(height: 3),
+
+                if (calculateAge(user.date) > 0)
+                  Text(
+                    "${calculateAge(user.date)} ${AppLocalizations.of(context)!.old_years}",
+                    style: textTheme.bodyMedium?.copyWith(
+                      color: colorScheme.onSurfaceVariant,
+                      fontSize: 13,
+                    ),
+                  ),
+
+                const SizedBox(height: 2),
+
                 Text(
                   getMonthGenetivus(context, user.date.month, user.date.day),
                   style: textTheme.bodySmall?.copyWith(
-                    color: colorScheme.onSurfaceVariant,
+                    color: colorScheme.outline,
+                    fontSize: 12,
                   ),
                 ),
               ],
