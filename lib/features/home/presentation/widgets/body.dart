@@ -1,30 +1,22 @@
-import 'package:birthday_calendar/features/home/presentation/bloc/cubit.dart';
+import 'package:birthday_calendar/features/bloc/cubit.dart';
 import 'package:birthday_calendar/l10n/app_localizations.dart';
 import 'list_card.dart';
 import 'next_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class Body extends StatefulWidget {
+class Body extends StatelessWidget {
   const Body({super.key});
 
   @override
-  State<Body> createState() => _BodyState();
-}
-
-class _BodyState extends State<Body> {
-  @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeCubit, HomeState>(
-      listener: (context, state) {
-        if (state is HomeError) {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text(state.message)));
-        }
-      },
+    return BlocBuilder<Bubit, BirthdayState>(
+      buildWhen: (p, c) => p.next != c.next || p.loading != c.loading,
       builder: (context, state) {
-        if (state is HomeEmpty) {
+        if (state.loading) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        if (state.next.isEmpty) {
           return Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -65,8 +57,7 @@ class _BodyState extends State<Body> {
               ),
             ),
           );
-        }
-        if (state is HomeLoaded) {
+        } else {
           final next = state.next;
           final inMonth = state.inMonth;
           return Column(
@@ -81,8 +72,6 @@ class _BodyState extends State<Body> {
             ],
           );
         }
-
-        return const Center(child: CircularProgressIndicator());
       },
     );
   }

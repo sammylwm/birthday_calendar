@@ -1,7 +1,9 @@
 import 'package:birthday_calendar/features/all_birthdays/presentation/all_birthdays_screen.dart';
+import 'package:birthday_calendar/features/bloc/cubit.dart';
 import 'package:birthday_calendar/features/home/presentation/home_screen.dart';
 import 'package:birthday_calendar/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MainNavigation extends StatefulWidget {
   const MainNavigation({super.key});
@@ -13,11 +15,18 @@ class MainNavigation extends StatefulWidget {
 class _MainNavigationState extends State<MainNavigation> {
   int currentIndex = 0;
 
-  final pages = [
-    HomeScreen(),
-    AllBirthdaysScreen(),
-    Center(child: Text('Настройки')),
-  ];
+  late final List<Widget> pages;
+
+  @override
+  void initState() {
+    super.initState();
+    pages = [
+      const HomeScreen(),
+      const AllBirthdaysScreen(),
+      const Center(child: Text('Настройки')),
+    ];
+    context.read<Bubit>().getAll();
+  }
 
   @override
   Widget build(BuildContext context) {

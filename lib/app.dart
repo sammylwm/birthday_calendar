@@ -1,7 +1,7 @@
 import 'package:birthday_calendar/themes/my_theme.dart';
 import 'package:flutter/material.dart';
 
-import 'features/auth/presentation/auth_screen.dart';
+import 'features/auth_screen.dart';
 import 'l10n/app_localizations.dart';
 
 class MyApp extends StatefulWidget {

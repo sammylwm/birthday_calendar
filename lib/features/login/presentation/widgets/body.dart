@@ -1,42 +1,35 @@
+import 'package:birthday_calendar/features/bloc/cubit.dart';
 import 'package:birthday_calendar/features/home/presentation/home_screen.dart';
 import 'package:birthday_calendar/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get_it/get_it.dart';
-import 'package:talker_flutter/talker_flutter.dart';
-
-import '../bloc/cubit.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LoginCubit, LoginState>(
+    return BlocConsumer<Bubit, BirthdayState>(
+      listenWhen: (previous, current) =>
+          previous.authStatus != current.authStatus,
+      buildWhen: (previous, current) =>
+          previous.authStatus != current.authStatus,
       listener: (context, state) {
-        if (state is LoginAuthenticated) {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (_) => const HomeScreen()),
-          );
-        }
+        switch (state.authStatus) {
+          case AuthStatus.authenticated:
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (_) => const HomeScreen()),
+            );
+            break;
 
-        if (state is LoginError) {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text(state.message)));
-          GetIt.I<Talker>().handle(state.message);
-        }
-
-        if (state is LoginCancelled) {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(const SnackBar(content: Text("Login cancelled")));
+          default:
+            break;
         }
       },
       builder: (context, state) {
-        if (state is LoginLoading) {
+        if (state.authStatus == AuthStatus.loading) {
           return const Center(child: CircularProgressIndicator());
         }
 
@@ -66,11 +59,10 @@ class Body extends StatelessWidget {
 
                 ElevatedButton(
                   onPressed: () {
-                    context.read<LoginCubit>().login();
+                    context.read<Bubit>().login();
                   },
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SvgPicture.asset(
                         'assets/images/google.svg',
@@ -82,6 +74,7 @@ class Body extends StatelessWidget {
                     ],
                   ),
                 ),
+
                 const Spacer(),
               ],
             ),

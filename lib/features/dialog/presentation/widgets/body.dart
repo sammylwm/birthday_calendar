@@ -1,4 +1,4 @@
-import 'package:birthday_calendar/features/dialog/presentation/bloc/cubit.dart';
+import 'package:birthday_calendar/features/bloc/cubit.dart';
 import 'package:birthday_calendar/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,16 +37,24 @@ class _BodyState extends State<Body> {
   ].where((e) => e.isNotEmpty).join(' ');
 
   @override
-  Widget build(BuildContext context) {
-    return BlocConsumer<AddCubit, AddState>(
-      listener: (context, state) {
-        if (state is AddError) {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text(state.message)));
-        }
+  void initState() {
+    super.initState();
 
-        if (state is AddLoaded) {
+    nameController.addListener(() {
+      setState(() {});
+    });
+
+    surnameController.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocConsumer<Bubit, BirthdayState>(
+      listenWhen: (p, c) => p.added != c.added && c.added,
+      listener: (context, state) {
+        if (state.added) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(AppLocalizations.of(context)!.add_ready)),
           );
@@ -55,7 +63,7 @@ class _BodyState extends State<Body> {
         }
       },
       builder: (context, state) {
-        if (state is AddLoading) {
+        if (state.adding) {
           return const Center(child: CircularProgressIndicator());
         }
 
@@ -116,7 +124,7 @@ class _BodyState extends State<Body> {
                       birthday == null || nameController.text.trim().isEmpty
                       ? null
                       : () {
-                          context.read<AddCubit>().add(name, birthday!);
+                          context.read<Bubit>().add(name, birthday!);
                         },
                   child: Text(AppLocalizations.of(context)!.add),
                 ),
