@@ -3,6 +3,7 @@ import 'package:birthday_calendar/core/utils/get_next.dart';
 import 'package:birthday_calendar/features/home/domain/birthday_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:googleapis/calendar/v3.dart' as calendar;
@@ -83,17 +84,38 @@ class Bubit extends Cubit<BirthdayState> {
 
   Future add(String summary, DateTime date) async {
     try {
+      final timezone = await FlutterTimezone.getLocalTimezone();
       emit(state.copyWith(addStatus: ActionStatus.loading, error: null));
       final api = await getApi();
       final event = calendar.Event(
-        summary: summary,
-        eventType: "birthday",
-        transparency: "transparent",
-        start: calendar.EventDateTime(date: date),
-        end: calendar.EventDateTime(
-          date: DateTime(date.year, date.month, date.day + 1),
+        summary: "🎂 Happy Birthday $summary",
+
+        extendedProperties: calendar.EventExtendedProperties(
+          private: {"type": "birthday", "app": "birthday_calendar"},
         ),
-        recurrence: ['RRULE:FREQ=YEARLY'],
+
+        start: calendar.EventDateTime(
+          dateTime: DateTime(date.year, date.month, date.day, 10),
+          timeZone: timezone.identifier,
+        ),
+
+        end: calendar.EventDateTime(
+          dateTime: DateTime(date.year, date.month, date.day, 10, 30),
+          timeZone: timezone.identifier,
+        ),
+
+        recurrence: ["RRULE:FREQ=YEARLY"],
+
+        reminders: calendar.EventReminders(
+          useDefault: false,
+          overrides: [
+            calendar.EventReminder(method: "popup", minutes: 0),
+            calendar.EventReminder(method: "popup", minutes: 1440),
+            calendar.EventReminder(method: "email", minutes: 0),
+            calendar.EventReminder(method: "email", minutes: 1440),
+          ],
+        ),
+
         visibility: "private",
       );
       await api.events.insert(event, "primary");
@@ -129,19 +151,41 @@ class Bubit extends Cubit<BirthdayState> {
     required DateTime date,
   }) async {
     try {
+      final timezone = await FlutterTimezone.getLocalTimezone();
+
       emit(state.copyWith(error: null, editStatus: ActionStatus.loading));
 
       final api = await getApi();
 
       final updatedEvent = calendar.Event(
-        summary: summary,
-        eventType: "birthday",
-        transparency: "transparent",
-        start: calendar.EventDateTime(date: date),
-        end: calendar.EventDateTime(
-          date: DateTime(date.year, date.month, date.day + 1),
+        summary: "🎂 Happy Birthday $summary",
+
+        extendedProperties: calendar.EventExtendedProperties(
+          private: {"type": "birthday", "app": "birthday_calendar"},
         ),
-        recurrence: ['RRULE:FREQ=YEARLY'],
+
+        start: calendar.EventDateTime(
+          dateTime: DateTime(date.year, date.month, date.day, 10),
+          timeZone: timezone.identifier,
+        ),
+
+        end: calendar.EventDateTime(
+          dateTime: DateTime(date.year, date.month, date.day, 10, 30),
+          timeZone: timezone.identifier,
+        ),
+
+        recurrence: ["RRULE:FREQ=YEARLY"],
+
+        reminders: calendar.EventReminders(
+          useDefault: false,
+          overrides: [
+            calendar.EventReminder(method: "popup", minutes: 0),
+            calendar.EventReminder(method: "popup", minutes: 1440),
+            calendar.EventReminder(method: "email", minutes: 0),
+            calendar.EventReminder(method: "email", minutes: 1440),
+          ],
+        ),
+
         visibility: "private",
       );
 

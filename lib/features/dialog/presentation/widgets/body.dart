@@ -20,7 +20,7 @@ class _BodyState extends State<Body> {
     final date = await showDatePicker(
       context: context,
       firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
+      lastDate: DateTime(2100),
       initialDate: DateTime.now(),
     );
 

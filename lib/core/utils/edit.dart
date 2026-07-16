@@ -64,7 +64,7 @@ class _EditBodyState extends State<EditBody> {
     final date = await showDatePicker(
       context: context,
       firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
+      lastDate: DateTime(2100),
       initialDate: birthday ?? DateTime.now(),
     );
 

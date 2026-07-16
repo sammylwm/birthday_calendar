@@ -4,12 +4,8 @@ import 'package:get_it/get_it.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:googleapis/calendar/v3.dart';
 
-String trimLastWords(String input, {int count = 3}) {
-  final parts = input.trim().split(RegExp(r'\s+'));
-
-  if (parts.length <= count) return input;
-
-  return parts.sublist(0, parts.length - count).join(' ');
+String getBirthdayName(String summary) {
+  return summary.replaceFirst("🎂 Happy Birthday ", "");
 }
 
 Future<GoogleSignInClientAuthorization> getAuth() async {
@@ -45,17 +41,33 @@ Future<CalendarApi> getApi() async {
 
 Future<List<BirthdayEvent>> getBirthdays() async {
   final api = await getApi();
-  final events = await api.events.list("primary", eventTypes: ['birthday']);
-  final birthdays =
-      events.items?.where((e) => e.start?.date != null).map((e) {
-        final date = e.start!.date!;
 
-        return BirthdayEvent(
-          id: e.id ?? "",
-          name: trimLastWords(e.summary ?? "No name"),
-          date: DateTime.parse(date.toString()),
-        );
-      }).toList() ??
+  final events = await api.events.list("primary");
+
+  final birthdays =
+      events.items
+          ?.where(
+            (e) =>
+                e.extendedProperties?.private?["app"] == "birthday_calendar" &&
+                e.extendedProperties?.private?["type"] == "birthday",
+          )
+          .map((e) {
+            final start = e.start;
+
+            final date = start?.date ?? start?.dateTime;
+
+            if (date == null) {
+              return null;
+            }
+
+            return BirthdayEvent(
+              id: e.id ?? "",
+              name: getBirthdayName(e.summary ?? ""),
+              date: DateTime(date.year, date.month, date.day),
+            );
+          })
+          .whereType<BirthdayEvent>()
+          .toList() ??
       [];
 
   return birthdays;
