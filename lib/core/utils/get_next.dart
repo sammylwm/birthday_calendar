@@ -31,7 +31,7 @@ Map<int, List<BirthdayEvent>> groupByMonth(List<BirthdayEvent> birthdays) {
 List<BirthdayEvent> getThisMonth(List<BirthdayEvent> birthdays) {
   final now = DateTime.now();
   final inMonth = birthdays.where((b) {
-    return b.date.month == now.month && b.date.day > now.day;
+    return b.date.month == now.month;
   }).toList();
   return inMonth;
 }
