@@ -163,4 +163,15 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get empty_birthdays_subtitle =>
       'Добавьте дни рождения в Google Календарь, чтобы увидеть их здесь';
+
+  @override
+  String get deleted => 'Контакт успешно удалён';
+
+  @override
+  String get cancel => 'Отмена';
+
+  @override
+  String delete_contact_confirmation(String name) {
+    return 'Удалить контакт \"$name\"?';
+  }
 }

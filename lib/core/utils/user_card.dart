@@ -1,12 +1,15 @@
+import 'package:birthday_calendar/core/utils/dialog_deleted.dart';
 import 'package:birthday_calendar/core/utils/get_day.dart';
+import 'package:birthday_calendar/features/bloc/cubit.dart';
 import 'package:birthday_calendar/features/home/domain/birthday_model.dart';
 import 'package:birthday_calendar/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class UserTile extends StatelessWidget {
   final BirthdayEvent user;
 
-  const UserTile({required this.user});
+  const UserTile({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -57,14 +60,25 @@ class UserTile extends StatelessWidget {
 
           PopupMenuButton<String>(
             iconColor: colorScheme.onSurfaceVariant,
-            onSelected: (value) {},
+
+            onSelected: (value) async {
+              if (value == AppLocalizations.of(context)!.delete) {
+                final confirmed = await showDeleteDialog(context, user.name);
+
+                if (confirmed && context.mounted) {
+                  context.read<Bubit>().delete(user.id);
+                }
+              }
+            },
+
             itemBuilder: (context) => [
               PopupMenuItem(
-                value: 'edit',
+                value: AppLocalizations.of(context)!.edit,
                 child: Text(AppLocalizations.of(context)!.edit),
               ),
+
               PopupMenuItem(
-                value: 'delete',
+                value: AppLocalizations.of(context)!.delete,
                 child: Text(AppLocalizations.of(context)!.delete),
               ),
             ],

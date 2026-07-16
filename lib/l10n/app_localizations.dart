@@ -385,6 +385,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add birthdays to Google Calendar to see them here'**
   String get empty_birthdays_subtitle;
+
+  /// No description provided for @deleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact deleted successfully'**
+  String get deleted;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cansel'**
+  String get cancel;
+
+  /// No description provided for @delete_contact_confirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete contact \"{name}\"?'**
+  String delete_contact_confirmation(String name);
 }
 
 class _AppLocalizationsDelegate

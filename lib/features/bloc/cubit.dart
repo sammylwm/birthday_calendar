@@ -106,6 +106,21 @@ class Bubit extends Cubit<BirthdayState> {
     }
   }
 
+  Future delete(String eventId) async {
+    try {
+      emit(state.copyWith(deleting: true, error: null));
+      final api = await getApi();
+      await api.events.delete("primary", eventId);
+      emit(state.copyWith(deleted: true, deleting: false));
+      getAll();
+    } catch (e, st) {
+      onError(e, st);
+      emit(
+        state.copyWith(deleting: false, error: e.toString(), deleted: false),
+      );
+    }
+  }
+
   void clearError() {
     emit(state.copyWith(error: null));
   }

@@ -161,4 +161,15 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get empty_birthdays_subtitle =>
       'Add birthdays to Google Calendar to see them here';
+
+  @override
+  String get deleted => 'Contact deleted successfully';
+
+  @override
+  String get cancel => 'Cansel';
+
+  @override
+  String delete_contact_confirmation(String name) {
+    return 'Delete contact \"$name\"?';
+  }
 }

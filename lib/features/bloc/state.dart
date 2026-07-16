@@ -2,7 +2,6 @@ part of "cubit.dart";
 
 class BirthdayState extends Equatable {
   final bool loading;
-  final bool adding;
 
   final AuthStatus authStatus;
 
@@ -11,7 +10,11 @@ class BirthdayState extends Equatable {
 
   final Map<int, List<BirthdayEvent>> events;
 
+  final bool adding;
   final bool added;
+
+  final bool deleting;
+  final bool deleted;
 
   final String? error;
 
@@ -23,6 +26,8 @@ class BirthdayState extends Equatable {
     this.inMonth = const [],
     this.events = const {},
     this.added = false,
+    this.deleted = false,
+    this.deleting = false,
     this.error,
   });
 
@@ -34,6 +39,8 @@ class BirthdayState extends Equatable {
     List<BirthdayEvent>? inMonth,
     Map<int, List<BirthdayEvent>>? events,
     bool? added,
+    bool? deleting,
+    bool? deleted,
     String? error,
   }) {
     return BirthdayState(
@@ -44,6 +51,8 @@ class BirthdayState extends Equatable {
       inMonth: inMonth ?? this.inMonth,
       events: events ?? this.events,
       added: added ?? this.added,
+      deleting: deleting ?? this.deleting,
+      deleted: deleted ?? this.deleted,
       error: error,
     );
   }
@@ -57,6 +66,8 @@ class BirthdayState extends Equatable {
     inMonth,
     events,
     added,
+    deleting,
+    deleted,
     error,
   ];
 }

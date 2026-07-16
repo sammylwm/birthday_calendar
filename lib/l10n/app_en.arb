@@ -60,5 +60,17 @@
   "now": "Now",
 
   "empty_birthdays_title": "No birthdays yet",
-  "empty_birthdays_subtitle": "Add birthdays to Google Calendar to see them here"
+  "empty_birthdays_subtitle": "Add birthdays to Google Calendar to see them here",
+
+
+  "deleted": "Contact deleted successfully",
+  "cancel": "Cansel",
+  "delete_contact_confirmation": "Delete contact \"{name}\"?",
+  "@delete_contact_confirmation": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  }
 }
