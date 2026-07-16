@@ -118,6 +118,7 @@ class Bubit extends Cubit<BirthdayState> {
 
         visibility: "private",
       );
+
       await api.events.insert(event, "primary");
       emit(state.copyWith(addStatus: ActionStatus.success));
       getAll();
