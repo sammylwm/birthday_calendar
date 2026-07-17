@@ -23,7 +23,7 @@ class _MainNavigationState extends State<MainNavigation> {
     pages = [
       const HomeScreen(),
       const AllBirthdaysScreen(),
-      const Center(child: Text('Настройки')),
+      // const Center(child: Text('Настройки')),
     ];
     context.read<Bubit>().getAll();
   }
@@ -55,11 +55,11 @@ class _MainNavigationState extends State<MainNavigation> {
             label: AppLocalizations.of(context)!.main_all_birthdays,
           ),
 
-          NavigationDestination(
-            icon: Icon(Icons.settings_outlined),
-            selectedIcon: Icon(Icons.settings),
-            label: AppLocalizations.of(context)!.main_tab_settings,
-          ),
+          // NavigationDestination(
+          //   icon: Icon(Icons.settings_outlined),
+          //   selectedIcon: Icon(Icons.settings),
+          //   label: AppLocalizations.of(context)!.main_tab_settings,
+          // ),
         ],
       ),
     );
