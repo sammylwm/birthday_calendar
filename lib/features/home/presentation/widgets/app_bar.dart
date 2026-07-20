@@ -11,16 +11,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     final result = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Выход'),
-        content: const Text('Вы действительно хотите выйти из аккаунта?'),
+        title: Text(AppLocalizations.of(context)!.exit),
+        content: Text(AppLocalizations.of(context)!.exit_agree),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: const Text('Отмена'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           FilledButton(
             onPressed: () => Navigator.pop(context, true),
-            child: const Text('Выйти'),
+            child: Text(AppLocalizations.of(context)!.exit_yes),
           ),
         ],
       ),

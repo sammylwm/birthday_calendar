@@ -421,6 +421,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Edit contact'**
   String get edit_contact;
+
+  /// No description provided for @exit.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit'**
+  String get exit;
+
+  /// No description provided for @exit_agree.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you really want to log out of your account?'**
+  String get exit_agree;
+
+  /// No description provided for @exit_yes.
+  ///
+  /// In en, this message translates to:
+  /// **'Log out'**
+  String get exit_yes;
 }
 
 class _AppLocalizationsDelegate

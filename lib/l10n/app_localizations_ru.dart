@@ -185,4 +185,13 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get edit_contact => 'Изменение контакта';
+
+  @override
+  String get exit => 'Exit';
+
+  @override
+  String get exit_agree => 'Do you really want to log out of your account?';
+
+  @override
+  String get exit_yes => 'Log out';
 }

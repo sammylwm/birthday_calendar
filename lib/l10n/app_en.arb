@@ -82,6 +82,9 @@
       }
     }
   },
-  "edit_contact": "Edit contact"
+  "edit_contact": "Edit contact",
+  "exit": "Exit",
+  "exit_agree": "Do you really want to log out of your account?",
+  "exit_yes": "Log out"
 
 }

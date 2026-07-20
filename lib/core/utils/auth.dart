@@ -29,12 +29,7 @@ Future<GoogleSignInClientAuthorization> getAuth() async {
 Future<CalendarApi> getApi() async {
   final auth = await getAuth();
 
-  final client = auth.authClient(
-    scopes: [
-      CalendarApi.calendarReadonlyScope,
-      CalendarApi.calendarEventsScope,
-    ],
-  );
+  final client = auth.authClient(scopes: [CalendarApi.calendarEventsScope]);
 
   return CalendarApi(client);
 }
