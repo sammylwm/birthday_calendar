@@ -187,11 +187,11 @@ class AppLocalizationsRu extends AppLocalizations {
   String get edit_contact => 'Изменение контакта';
 
   @override
-  String get exit => 'Exit';
+  String get exit => 'Выход';
 
   @override
-  String get exit_agree => 'Do you really want to log out of your account?';
+  String get exit_agree => 'Вы действительно хотите выйти из аккаунта?';
 
   @override
-  String get exit_yes => 'Log out';
+  String get exit_yes => 'Выйти';
 }
