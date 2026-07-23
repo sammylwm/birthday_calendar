@@ -169,7 +169,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get edited => 'Contact edited successfully';
 
   @override
-  String get cancel => 'Cansel';
+  String get cancel => 'Canсel';
 
   @override
   String delete_contact_confirmation(String name) {

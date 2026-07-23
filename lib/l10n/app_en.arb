@@ -65,7 +65,7 @@
 
   "deleted": "Contact deleted successfully",
   "edited": "Contact edited successfully",
-  "cancel": "Cansel",
+  "cancel": "Canсel",
   "delete_contact_confirmation": "Delete contact \"{name}\"?",
   "@delete_contact_confirmation": {
     "placeholders": {

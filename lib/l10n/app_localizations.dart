@@ -401,7 +401,7 @@ abstract class AppLocalizations {
   /// No description provided for @cancel.
   ///
   /// In en, this message translates to:
-  /// **'Cansel'**
+  /// **'Canсel'**
   String get cancel;
 
   /// No description provided for @delete_contact_confirmation.
